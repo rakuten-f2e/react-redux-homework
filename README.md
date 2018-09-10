@@ -13,7 +13,7 @@ Step 1
   * Construct your `app` with [starter kits](https://reactjs.org/community/starter-kits.html) and use `React` to construct your view and display above table.
     * Sample: `git checkout starter-kit`
   * Please divide your component, only one component is `invalid`
-  * The data just a fake array currently
+  * The data is just a fake array currently
 
 Step 2
   * Complete a CRUD functionality
@@ -36,16 +36,17 @@ Step 5
   * Follow normal RESTful design for CRUD request
 
 Step 6
-  * Perform your development/production in `Docker`
+  * Run your development/production in `Docker`
 
 Step 7
   * Use `react-router` to separate one view to couples views for CRUD operation
   * Design by yourself
 
 ## Requirements
+
 ### Workflow
 1. Please `fork` this repository, create a git `branch` per step. After finishing of each step, create `Pull Request`s to merge to your master.
-2. `Definition of Done` (DoD) for per step: You should finish `component`, `unit test` and make sure `Continuous Integration (CI)` run tests successfully, which means `CI` badges should be displayed in `passed`.
+2. `Definition of Done` (DoD) for per step: You should finish `component`, `unit test` and make sure `Continuous Integration (CI)` run tests successfully, which means `CI` badges should be displayed as `Passed`.
    * Write test if your component or function is in incubating instead of finish
 3. Please write the description and the `shell command` of your application in `README`.
 
