@@ -1,0 +1,22 @@
+{
+  "name": "my-razzle-app",
+  "version": "2.0.0-alpha.8",
+  "license": "MIT",
+  "scripts": {
+    "start": "razzle start",
+    "build": "razzle build",
+    "test": "jest",
+    "start:prod": "NODE_ENV=production node build/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "jest": "^23.5.0",
+    "razzle": "^2.4.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  },
+  "testEnvironment": "node",
+  "testMatch": [
+    "**/test/**/*.test.js"
+  ]
+}

@@ -1,4 +1,5 @@
 # react-redux-homework
+> bootstrap by [razzle](https://github.com/jaredpalmer/razzle)
 
 ## Goals
 Learn `react`, `redux` and the ecosystem.
