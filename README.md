@@ -10,9 +10,9 @@ You need to create a basic CRUD functionality for a issue tracker, like followin
 Please follow below steps to do your job:   
 
 Step 1
-  * Create a repo and use `React` to construct your view and display above table
-  * You can use `webpack` or `browserify` as your module bundler
-  * Please divide your component, only one component is invalid
+  * Construct your `app` with [starter kits](https://reactjs.org/community/starter-kits.html) and use `React` to construct your view and display above table.
+    * Sample: `git checkout starter-kit`
+  * Please divide your component, only one component is `invalid`
   * The data just a fake array currently
 
 Step 2
@@ -26,24 +26,35 @@ Step 3
   * Still using fake data
 
 Step 4
+  * Abandon `startkit` and construct the server by your own.
+  * Use `webpack` or `browserify` as your module bundler
+  * Environment `development (dev)` and `production (prod)` are required. `uglify` and `minify` should be implemented on `prod`.
+
+Step 5
   * Now, save your data in the database and use `Node.js` & `Express` as your backend
   * CRUD operation will be handled in the backend
   * Follow normal RESTful design for CRUD request
 
-Step 5
+Step 6
+  * Perform your development/production in `Docker`
+
+Step 7
   * Use `react-router` to separate one view to couples views for CRUD operation
   * Design by yourself
 
-**NOTE: You should create a git branch per step.**    
+## Requirements
+### Workflow
+1. Please `fork` this repository, create a git `branch` per step. After finishing of each step, create `Pull Request`s to merge to your master.
+2. `Definition of Done` (DoD) for per step: You should finish `component`, `unit test` and make sure `Continuous Integration (CI)` run tests successfully, which means `CI` badges should be displayed in `passed`.
+   * Write test if your component or function is in incubating instead of finish
+3. Please write the description and the `shell command` of your application in `README`.
+
 **NOTE: Your code should be Configurable, Testable and Maintainable**
 
-### Technical Requirements
+### Technical
 * React
 * Redux
 * React-Router
 * Node.js & Express
 * It's necessary to write the testing for both frontend and backend
-  * Write test if your component or function is in incubating instead of finish
-* Perform your development/production in the `Docker`
-  * You are supposed to be bootstrap your application in the `Docker` at the beginning
-* Deploy your application to `Travis` CI
+* Deploy your application to `CI` like `Travis`, `Circle` or any else.
