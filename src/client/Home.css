@@ -25,6 +25,7 @@
 
 .Table {
   border: solid;
+  margin-top: 36px;
 }
 
 .Table  th {
@@ -35,13 +36,18 @@
   padding: 10px;
 }
 
+.Row-even{
+  background-color: lightgrey;
+}
+
 .Home-footer  {
   height: 100px;
   position: absolute;
   bottom: 0;
   width: 100%;
+  position: fixed;
 }
 
 .Home-footer p {
-  padding: 0px;
+  line-height: 1px;
 }
