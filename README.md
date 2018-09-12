@@ -20,6 +20,9 @@ Step 2
   * If a row is updated, please make that row with a particular background color
   * Just with some fake data like previous step
   * You need to think about how you perform the CRUD operation on the UI
+  * Please linting your `JavaScript` via [eslint](https://eslint.org/). The following are recommended `preset`:
+    * [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app)
+    * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
 Step 3
   * Add `Redux` as the `flux` implementation
