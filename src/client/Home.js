@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './react.svg';
 import './home.css';
+import Table from './Table';
+import Footer from './Footer';
+
 
 class Home extends React.Component {
   render() {
@@ -25,6 +28,8 @@ class Home extends React.Component {
             <a href="https://palmer.chat">Community Slack</a>
           </li>
         </ul>
+        <Table />
+        <Footer />
       </div>
     );
   }

@@ -35,3 +35,22 @@
     transform: rotate(360deg);
   }
 }
+
+.Table {
+  border: solid;
+}
+
+.Table  th  {
+  background-color: grey;
+}
+
+.Home-footer  {
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.Home-footer p {
+  padding: 0px;
+}
