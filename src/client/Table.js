@@ -1,11 +1,6 @@
 import React from 'react';
 import data from './data.json';
 
-function ShowIdentity(props){
-    return (
-        <p>This is a Table from {props.id}: {props.name}.</p>
-    );
-}
 function TableItem(props){
     return (
         <tr>
@@ -70,7 +65,6 @@ class Table extends React.Component{
             <div> 
                 <div>
                     {this.state.date.toLocaleTimeString()}
-                    <ShowIdentity id={this.state.id} name={this.state.name}/>
                 </div>
                 <div>
                     <ShowTable tableData={tableData}/>

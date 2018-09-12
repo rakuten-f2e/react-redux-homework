@@ -14,19 +14,6 @@
   color: white;
 }
 
-.Home-intro {
-  font-size: large;
-}
-
-.Home-resources {
-  list-style: none;
-}
-
-.Home-resources > li {
-  display: inline-block;
-  padding: 1rem;
-}
-
 @keyframes Home-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,8 +27,12 @@
   border: solid;
 }
 
-.Table  th  {
+.Table  th {
   background-color: grey;
+}
+
+.Table td {
+  padding: 10px;
 }
 
 .Home-footer  {
