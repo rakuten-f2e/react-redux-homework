@@ -2,8 +2,9 @@ import React from 'react';
 import data from './data.json';
 
 function TableItem(props){
+  if(props.seq % 2){
     return (
-        <tr>
+        <tr className="Row-odd">
             <td>{props.seq}</td>
             <td>{props.Status}</td>
             <td>{props.Category}</td>
@@ -12,6 +13,19 @@ function TableItem(props){
             <td>{props.Priority}</td>
         </tr>
     );
+  }
+  else{
+    return (
+      <tr className="Row-even">
+          <td>{props.seq}</td>
+          <td>{props.Status}</td>
+          <td>{props.Category}</td>
+          <td>{props.Title}</td>
+          <td>{props.Owner}</td>
+          <td>{props.Priority}</td>
+      </tr>
+    );
+  }
 }
 function ShowTable(props){
     const tableData = props.tableData;
@@ -44,31 +58,11 @@ function ShowTable(props){
 }
 const tableData = data;
 class Table extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {date: new Date(), id: 7699, name: 'Sean'};
-    }
-    componentDidMount(){
-        this.timeID = setInterval(() => this.tick(), 1000);
-    }
-    componentWillUnmount(){
-        clearInterval(this.timeID);
-    }
-    tick(){
-        this.setState({
-            date: new Date()
-        });
-    }
 
     render(){
         return (
-            <div> 
-                <div>
-                    {this.state.date.toLocaleTimeString()}
-                </div>
-                <div>
-                    <ShowTable tableData={tableData}/>
-                </div>
+            <div className="Home-table"> 
+              <ShowTable tableData={tableData}/>
             </div>  
         );
     }
