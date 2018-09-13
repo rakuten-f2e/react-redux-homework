@@ -1,12 +1,9 @@
 {
-  "env": {
-    "test": {
-      "presets": ["env", "react", "stage-2"],
-      "plugins": ["transform-export-extensions"],
-      "only": [
-        "./**/*.js",
-        "node_modules/jest-runtime"
-      ]
-    }
-  }
+  "presets": [
+    ["es2015"],
+    "react"
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties"
+  ]
 }
