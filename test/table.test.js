@@ -27,5 +27,6 @@ describe('<Table />', () => {
     const evenRow = wrapper.find('tr.Row-even');
     const evenColumns = evenRow.find('td').map(col => col.text());
     expect(evenColumns[0] % 2).toEqual(0);
+    expect(evenRow.get(0).props.style).toHaveProperty('backgroundColor','lightgrey');
   });
 });
