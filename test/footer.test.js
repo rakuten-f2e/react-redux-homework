@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
-import Footer from '../src/client/footer';
+import Footer from '../src/client/Footer';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
@@ -18,10 +18,10 @@ describe('<Footer />', () => {
     const clock = mount(<Footer />);
     const timer = clock.find('p').at(2);
     const now = new Date();
-    expect(timer.text()).toEqual(now.getHours()+":"+now.getMinutes()+":"+now.getSeconds());
+    expect(timer.text()).toEqual(now.toLocaleTimeString());
   });
 
-  it('Check lifecycle', () => {
+  it('Check componentDidMount', () => {
     const wrapper = shallow(<Footer />);
     wrapper.instance().componentDidMount();
   });
