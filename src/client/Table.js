@@ -2,6 +2,7 @@ import React from 'react';
 import data from './data.json';
 
 function TableItem(props){
+
   if(props.seq % 2){
     return (
         <tr className="Row-odd">
@@ -16,7 +17,7 @@ function TableItem(props){
   }
   else{
     return (
-      <tr className="Row-even">
+      <tr className="Row-even" style={{backgroundColor: 'lightgrey'}}>
           <td>{props.seq}</td>
           <td>{props.Status}</td>
           <td>{props.Category}</td>
@@ -42,7 +43,7 @@ function ShowTable(props){
         <div className="Table-container">
             <table align="center" rules="all" className="Table">
                 <tbody>
-                    <tr>
+                    <tr className="Table-header">
                         <th>seq</th>
                         <th>Status</th>
                         <th>Category</th>
