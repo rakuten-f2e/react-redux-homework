@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536827755838" clover="3.2.0">
-  <project timestamp="1536827755838" name="All files">
-    <metrics statements="16" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="4" elements="29" coveredelements="10" complexity="0" loc="16" ncloc="16" packages="1" files="3" classes="3">
+<coverage generated="1536890521230" clover="3.2.0">
+  <project timestamp="1536890521231" name="All files">
+    <metrics statements="16" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="8" elements="29" coveredelements="24" complexity="0" loc="16" ncloc="16" packages="1" files="3" classes="3">
       <file name="Footer.js" path="/Users/lihsuan.hsieh/Documents/github/react-redux-homework/src/client/Footer.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
         <line num="5" count="3" type="stmt"/>
@@ -16,16 +16,16 @@
         <line num="10" count="1" type="stmt"/>
       </file>
       <file name="Table.js" path="/Users/lihsuan.hsieh/Documents/github/react-redux-homework/src/client/Table.js">
-        <metrics statements="9" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="5" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>
