@@ -24,7 +24,7 @@ describe('<Footer />', () => {
   it('Check lifecycle', () => {
     const wrapper = shallow(<Footer />);
     expect(setInterval).toBeCalled();
-    expect(clearInterval.length).toBe(0);
+    expect(clearInterval).not.toBeCalled();
 
     wrapper.unmount();
     expect(setInterval).toBeCalled();
