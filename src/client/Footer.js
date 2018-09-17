@@ -8,14 +8,18 @@ class Footer extends React.Component{
   componentDidMount(){
       this.timeID = setInterval(() => this.tick(), 1000);
   }
+
   componentWillUnmount(){
       clearInterval(this.timeID);
   }
+
   tick(){
       this.setState({
           date: new Date()
       });
   }
+
+
 
     render(){
         return (

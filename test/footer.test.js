@@ -21,8 +21,13 @@ describe('<Footer />', () => {
     expect(timer.text()).toEqual(now.toLocaleTimeString());
   });
 
-  it('Check componentDidMount', () => {
+  it('Check lifecycle', () => {
     const wrapper = shallow(<Footer />);
-    wrapper.instance().componentDidMount();
+    expect(setInterval).toBeCalled();
+    expect(clearInterval.length).toBe(0);
+
+    wrapper.unmount();
+    expect(setInterval).toBeCalled();
+    expect(clearInterval).toBeCalled();
   });
 });
