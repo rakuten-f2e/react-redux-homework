@@ -8,6 +8,6 @@ describe('When scenario', () => {
   test('Home should display', () => {
     // verify your component here
     const welcome = shallow(<Home />);
-    expect(welcome.find('h2').text()).toEqual('Welcome to Razzle');
+    expect(welcome.find('h1').text()).toEqual('React-Redux Homework');
   });
 });

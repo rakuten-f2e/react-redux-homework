@@ -10,21 +10,10 @@
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
-    "babel-plugin-transform-export-extensions": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "enzyme-to-json": "^3.3.4",
-    "express": "^4.16.3",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.5.0",
-    "jest-cli": "^23.6.0",
     "razzle": "^2.4.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "react-test-renderer": "^16.5.0",
-    "webpack": "^4.18.0"
+    "react-test-renderer": "^16.5.0"
   },
   "testEnvironment": "node",
   "testMatch": [
@@ -34,7 +23,15 @@
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.2",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.6.0"
   },
   "jest": {
     "moduleNameMapper": {

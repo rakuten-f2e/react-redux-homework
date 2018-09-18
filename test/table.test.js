@@ -1,15 +1,15 @@
 import React from 'react';
-import {shallow, mount, configure} from 'enzyme';
+import {mount, configure} from 'enzyme';
 import Table from '../src/client/Table';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('<Table />', () => {
+describe('When scenario', () => {
   const wrapper = mount(<Table />);
-  it('Check table header', () => {
+  test('Table should display', () => {
     
-    const header = wrapper.find('tr.Table-header');
+    const header = wrapper.find('tr.table__header');
     expect(header.length).toEqual(1);
 
     const headerColumns = header.find('th').map(col => col.text());
@@ -19,14 +19,17 @@ describe('<Table />', () => {
     expect(headerColumns[headerColumns.length-1]).toEqual('Priority');
 
   });
-  it('Check table items', () => {
-    const oddRow = wrapper.find('tr.Row-odd');
+});
+
+describe('When table display', () => {
+  it('should have different class name', () => {
+    const wrapper = mount(<Table />);
+    const oddRow = wrapper.find('[className="table__row table__row--odd"]');
     const oddColumns = oddRow.find('td').map(col => col.text());
     expect(oddColumns[0] % 2).toEqual(1);
 
-    const evenRow = wrapper.find('tr.Row-even');
+    const evenRow = wrapper.find('[className="table__row table__row--even"]');
     const evenColumns = evenRow.find('td').map(col => col.text());
     expect(evenColumns[0] % 2).toEqual(0);
-    expect(evenRow.get(0).props.style).toHaveProperty('backgroundColor','lightgrey');
   });
-});
+})
