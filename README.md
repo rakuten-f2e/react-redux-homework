@@ -1,6 +1,14 @@
 # react-redux-homework
 > bootstrap by [razzle](https://github.com/jaredpalmer/razzle)
 
+## Shell command
+* `npm start`		Run & compile the project and show on the Internet
+* `npm test` 		Execute Jest to apply unit testing
+* `npm run` report	Show testing report
+
+
+-------------------------------------------------------------
+
 ## Goals
 Learn `react`, `redux` and the ecosystem.
 
@@ -63,8 +71,3 @@ Step 7
 * Node.js & Express
 * It's necessary to write the testing for both frontend and backend
 * Deploy your application to `CI` like `Travis`, `Circle` or any else.
-
-## Shell command
-* npm start		Run & compile the project and show on the Internet
-* npm test 		Execute Jest to apply unit testing
-* npm run report	Show testing report
