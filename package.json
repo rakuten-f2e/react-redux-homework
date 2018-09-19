@@ -32,13 +32,14 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
     "jest-cli": "^23.6.0",
-    "react-test-renderer": "^16.5.0"
+    "react-test-renderer": "^16.5.0",
+    "sinon": "^6.3.4"
   },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/src/client/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
   }
 }

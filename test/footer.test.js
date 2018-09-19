@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Footer from '../src/client/Footer';
 
 describe('<Footer />', () => {
@@ -30,5 +30,14 @@ describe('<Footer />', () => {
       expect(setInterval).toBeCalled();
       expect(clearInterval).toBeCalled();
     })
-  })
+  });
+
+  describe('When clock is ticking', () => {
+    it('State should be changed', () => {
+      const mountWrapper = mount(<Footer />);
+      const spy = jest.spyOn(Footer.prototype, 'tick');
+      mountWrapper.instance().tick();
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 });

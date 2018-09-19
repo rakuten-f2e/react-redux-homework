@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class TableRow extends React.Component{
   render(){
-    
     const isEven = (this.props.seq % 2 === 0) ? true : false;
     const className = isEven ? 'table__row table__row--even' : 'table__row table__row--odd';
     return (

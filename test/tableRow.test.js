@@ -1,25 +1,17 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TableRow from '../src/client/TableRow';
-
-const fakeData = {
-  seq: 3,
-  status: "Open",
-  category: "cat5",
-  title: "title500",
-  owner: "Sean",
-  priority: "P4"
-}
+import {mockData} from './mockData';
 
 describe('When table is created', () => {
   const wrapper = shallow(<TableRow 
-    key={fakeData.seq}
-    seq={fakeData.seq} 
-    status={fakeData.status}
-    category={fakeData.category}
-    title={fakeData.title}
-    owner={fakeData.owner}
-    priority={fakeData.priority}
+    key={mockData.seq}
+    seq={mockData.seq} 
+    status={mockData.status}
+    category={mockData.category}
+    title={mockData.title}
+    owner={mockData.owner}
+    priority={mockData.priority}
   />);
   it('TableRow should have six cells', () => {
     expect(wrapper.find('td').length).toBe(6);
