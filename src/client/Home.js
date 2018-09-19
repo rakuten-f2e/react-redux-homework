@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.css';
+import data from './data.json';
 import Table from './Table';
 import Footer from './Footer';
 
@@ -10,7 +11,7 @@ class Home extends React.Component {
       <div className="home">
         <div className="home__container">
           <h1>React-Redux Homework</h1>
-          <Table />
+          <Table tableData={data}/>
           <Footer />
         </div>
       </div>
