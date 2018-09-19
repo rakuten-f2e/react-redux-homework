@@ -1,34 +1,34 @@
 import React from 'react';
-import {shallow, configure} from 'enzyme';
+import {shallow} from 'enzyme';
 import Footer from '../src/client/Footer';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
 
-jest.useFakeTimers();
-
-describe('When open the website', () => {
+describe('<Footer />', () => {
+  jest.useFakeTimers();
   const wrapper = shallow(<Footer />);
-  it('should display', () => {
+
+  describe('When users connect to the website', () => {
+    it('Footer should display', () => {
+      expect(wrapper.find('p')).toHaveLength(3);
+      expect(wrapper.find('a').text()).toEqual('ss77995ss@gmail.com');
     
-    expect(wrapper.find('p')).toHaveLength(3);
-    expect(wrapper.find('a').text()).toEqual('ss77995ss@gmail.com');
+      const timer = wrapper.find('p').at(2);
+      const now = new Date();
+      expect(timer.text()).toEqual(now.toLocaleTimeString());
+    });
+  });
   
-    const timer = wrapper.find('p').at(2);
-    const now = new Date();
-    expect(timer.text()).toEqual(now.toLocaleTimeString());
+  describe('Ｗhen component did mount', () => {
+    it('the clock should be ticking', () => {
+      expect(setInterval).toBeCalled();
+      expect(clearInterval).not.toBeCalled();
+    });
   });
-});
 
-describe('When clock ticking', () => {
-
-  it('should display', () => {
-    const wrapper = shallow(<Footer />);
-
-    expect(setInterval).toBeCalled();
-    expect(clearInterval).not.toBeCalled();
-
-    wrapper.unmount();
-    expect(setInterval).toBeCalled();
-    expect(clearInterval).toBeCalled();
-  });
+  describe('When component has unmounted', () => {
+    it('the clock should be cleared', () => {
+      wrapper.unmount();
+      expect(setInterval).toBeCalled();
+      expect(clearInterval).toBeCalled();
+    })
+  })
 });
