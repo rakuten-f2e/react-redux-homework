@@ -1,4 +1,4 @@
-# react-redux-homework
+# react-redux-homework &middot; [![Build Status](https://travis-ci.org/ss77995ss/react-redux-homework.svg?branch=react-redux-step1](https://travis-ci.org/ss77995ss/react-redux-homework)
 > bootstrap by [razzle](https://github.com/jaredpalmer/razzle)
 
 ## Shell command
