@@ -1,22 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import TableRow from './TableRow';
 class Table extends React.Component{
   render(){
     const tableData = this.props.tableData;
-    const tableRow = tableData.map(item => {
-      return(
-        <TableRow
-        key={item.seq}
-        seq={item.seq} 
-        status={item.status}
-        category={item.category}
-        title={item.title}
-        owner={item.owner}
-        priority={item.priority}
-        />
-      );
+    let tableRow = [];
+    if(tableData){
+      tableRow = tableData.map(item => {
+        return(
+          <TableRow
+            key={item.seq}
+            seq={item.seq} 
+            status={item.status}
+            category={item.category}
+            title={item.title}
+            owner={item.owner}
+            priority={item.priority}
+          />
+        );
+      });
     }
-    );
+    
     return (
       <div className="table">
         <table align="center" rules="all" className="table__main">
@@ -38,5 +42,9 @@ class Table extends React.Component{
     );
   }
 }
+
+Table.propTypes = {
+  tableData: PropTypes.array
+};
 
 export default Table;

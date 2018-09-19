@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TableRow extends React.Component{
   render(){
@@ -17,5 +18,14 @@ class TableRow extends React.Component{
     );
   };
 }
+
+TableRow.propTypes = {
+  seq: PropTypes.number,
+  status: PropTypes.string,
+  category: PropTypes.string,
+  title: PropTypes.string,
+  owner: PropTypes.string,
+  priority: PropTypes.string
+};
 
 export default TableRow;
