@@ -13,8 +13,7 @@
     "express": "^4.16.3",
     "razzle": "^2.4.0",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0",
-    "react-test-renderer": "^16.5.0"
+    "react-dom": "^16.5.0"
   },
   "testEnvironment": "node",
   "testMatch": [
@@ -32,7 +31,8 @@
     "enzyme-to-json": "^3.3.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
-    "jest-cli": "^23.6.0"
+    "jest-cli": "^23.6.0",
+    "react-test-renderer": "^16.5.0"
   },
   "jest": {
     "moduleNameMapper": {
