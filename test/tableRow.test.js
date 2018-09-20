@@ -1,28 +1,44 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TableRow from '../src/client/TableRow';
-import {mockData} from './mockData';
+import {odd, even} from './mockData';
 
-describe('When table is created', () => {
+describe('WHEN odd Row is created', () => {
   const wrapper = shallow(<TableRow 
-    key={mockData.seq}
-    seq={mockData.seq} 
-    status={mockData.status}
-    category={mockData.category}
-    title={mockData.title}
-    owner={mockData.owner}
-    priority={mockData.priority}
+    key={odd.seq}
+    index={odd.index}
+    seq={odd.seq}
+    status={odd.status}
+    category={odd.category}
+    title={odd.title}
+    owner={odd.owner}
+    priority={odd.priority}
   />);
-  it('TableRow should have six cells', () => {
+  it('should have six cells', () => {
     expect(wrapper.find('td').length).toBe(6);
   });
 
-  it('TableRow should have different className', () => {
-    if(wrapper.find('td').first() % 2 === 0){
-      expect(wrapper.find('tr').hasClass('table__row table__row--even')).toBe(true);
-    }
-    else if(wrapper.find('td').first() % 2 === 1){
-      expect(wrapper.find('tr').hasClass('table__row table__row--odd')).toBe(true);
-    }
+  it('should have className "table__row table__row--odd"', () => {
+    expect(wrapper.find('tr').hasClass('table__row table__row--odd')).toBeTruthy();
+  });
+})
+
+describe('WHEN even Row is created', () => {
+  const wrapper = shallow(<TableRow 
+    key={even.seq}
+    index={even.index}
+    seq={even.seq}
+    status={even.status}
+    category={even.category}
+    title={even.title}
+    owner={even.owner}
+    priority={even.priority}
+  />);
+  it('should have six cells', () => {
+    expect(wrapper.find('td').length).toBe(6);
+  });
+
+  it('should have className "table__row table__row--even"', () => {
+    expect(wrapper.find('tr').hasClass('table__row table__row--even')).toBeTruthy();
   });
 })
