@@ -5,21 +5,21 @@ class Table extends React.Component{
   render(){
     const tableData = this.props.tableData;
     let tableRow = [];
-    if(tableData){
-      tableRow = tableData.map(item => {
-        return(
-          <TableRow
-            key={item.seq}
-            seq={item.seq} 
-            status={item.status}
-            category={item.category}
-            title={item.title}
-            owner={item.owner}
-            priority={item.priority}
-          />
-        );
-      });
-    }
+
+    tableRow = tableData.map((item, index) => {
+      return(
+        <TableRow
+          key={item.seq}
+          index={index+1}
+          seq={item.seq} 
+          status={item.status}
+          category={item.category}
+          title={item.title}
+          owner={item.owner}
+          priority={item.priority}
+        />
+      );
+    });
     
     return (
       <div className="table">
@@ -44,7 +44,7 @@ class Table extends React.Component{
 }
 
 Table.propTypes = {
-  tableData: PropTypes.array
+  tableData: PropTypes.array.isRequired
 };
 
 export default Table;

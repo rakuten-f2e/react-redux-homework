@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class TableRow extends React.Component{
   render(){
-    const isEven = (this.props.seq % 2 === 0) ? true : false;
+    const isEven = (this.props.index % 2 === 0);
     const className = isEven ? 'table__row table__row--even' : 'table__row table__row--odd';
     return (
       <tr className={className}>
@@ -19,6 +19,7 @@ class TableRow extends React.Component{
 }
 
 TableRow.propTypes = {
+  index: PropTypes.number,
   seq: PropTypes.number,
   status: PropTypes.string,
   category: PropTypes.string,
