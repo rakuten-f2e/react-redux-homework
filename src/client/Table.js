@@ -18,6 +18,7 @@ class Table extends React.Component{
           title={item.title}
           owner={item.owner}
           priority={item.priority}
+          onClick={this.props.receiveDeleteTarget}
         />
       );
     });
@@ -33,6 +34,7 @@ class Table extends React.Component{
               <th>Title</th>
               <th>Owner</th>
               <th>Priority</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +47,8 @@ class Table extends React.Component{
 }
 
 Table.propTypes = {
-  tableData: PropTypes.array.isRequired
+  tableData: PropTypes.array.isRequired,
+  receiveDeleteTarget: PropTypes.func
 };
 
 export default Table;
