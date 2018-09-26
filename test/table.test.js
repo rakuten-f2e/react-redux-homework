@@ -8,12 +8,12 @@ describe('<Table />', () => {
     it('table header should display', () => {
       const wrapper = shallow(<Table tableData={mockData}/>);
       const header = wrapper.find('thead');
-      expect(header.length).toEqual(1);
+      expect(header).toHaveLength(1);
   
       const headerColumns = header.find('th').map(col => col.text());
-      expect(headerColumns.length).toEqual(6);
+      expect(headerColumns).toHaveLength(6);
       expect(headerColumns[0]).toEqual('seq');
-      expect(headerColumns[1].length).toEqual(6);
+      expect(headerColumns[1]).toHaveLength(6);
       expect(headerColumns[headerColumns.length-1]).toEqual('Priority');
     });
   });

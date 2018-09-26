@@ -15,13 +15,13 @@ describe('WHEN odd Row is created', () => {
     priority={odd.priority}
   />);
   it('should have six cells', () => {
-    expect(wrapper.find('td').length).toBe(6);
+    expect(wrapper.find('td')).toHaveLength(6);
   });
 
   it('should have className "table__row table__row--odd"', () => {
     expect(wrapper.find('tr').hasClass('table__row table__row--odd')).toBeTruthy();
   });
-})
+});
 
 describe('WHEN even Row is created', () => {
   const wrapper = shallow(<TableRow 
@@ -35,10 +35,10 @@ describe('WHEN even Row is created', () => {
     priority={even.priority}
   />);
   it('should have six cells', () => {
-    expect(wrapper.find('td').length).toBe(6);
+    expect(wrapper.find('td')).toHaveLength(6);
   });
 
   it('should have className "table__row table__row--even"', () => {
     expect(wrapper.find('tr').hasClass('table__row table__row--even')).toBeTruthy();
   });
-})
+});
