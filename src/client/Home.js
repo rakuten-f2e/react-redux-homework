@@ -12,6 +12,7 @@ class Home extends React.Component {
     this.state = {data: data, root: data};
     this.receiveCreatedData = this.receiveCreatedData.bind(this);
     this.receiveSearchData = this.receiveSearchData.bind(this);
+    this.receiveDeleteTarget = this.receiveDeleteTarget.bind(this);
   }
 
   receiveCreatedData(e){
@@ -40,6 +41,12 @@ class Home extends React.Component {
     }
   }
 
+  receiveDeleteTarget(e){
+    let tableData = this.state.root;
+    tableData.splice(e.index-1, 1);
+    this.setState({data: tableData, root: this.state.root});
+  }
+
   render() {
     return (
       <div className="home">
@@ -49,7 +56,7 @@ class Home extends React.Component {
             <Create receiveCreatedData={this.receiveCreatedData}/>
             <Read receiveSearchData={this.receiveSearchData}/>
           </div>
-          <Table tableData={this.state.data}/>
+          <Table tableData={this.state.data} receiveDeleteTarget={this.receiveDeleteTarget}/>
           <Footer />
         </div>
       </div>
