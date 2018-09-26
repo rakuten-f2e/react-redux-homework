@@ -14,8 +14,8 @@ describe('WHEN odd Row is created', () => {
     owner={odd.owner}
     priority={odd.priority}
   />);
-  it('should have six cells', () => {
-    expect(wrapper.find('td')).toHaveLength(6);
+  it('should have seven cells', () => {
+    expect(wrapper.find('td')).toHaveLength(7);
   });
 
   it('should have className "table__row table__row--odd"', () => {
@@ -34,8 +34,8 @@ describe('WHEN even Row is created', () => {
     owner={even.owner}
     priority={even.priority}
   />);
-  it('should have six cells', () => {
-    expect(wrapper.find('td')).toHaveLength(6);
+  it('should have seven cells', () => {
+    expect(wrapper.find('td')).toHaveLength(7);
   });
 
   it('should have className "table__row table__row--even"', () => {

@@ -11,10 +11,10 @@ describe('<Table />', () => {
       expect(header).toHaveLength(1);
   
       const headerColumns = header.find('th').map(col => col.text());
-      expect(headerColumns).toHaveLength(6);
+      expect(headerColumns).toHaveLength(7);
       expect(headerColumns[0]).toEqual('seq');
       expect(headerColumns[1]).toHaveLength(6);
-      expect(headerColumns[headerColumns.length-1]).toEqual('Priority');
+      expect(headerColumns[headerColumns.length-1]).toEqual('Action');
     });
   });
 });
