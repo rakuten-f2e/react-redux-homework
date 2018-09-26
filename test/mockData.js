@@ -18,6 +18,27 @@ export const even = {
   priority: 'P3'
 };
 
+export const bySeq = {
+  target: {
+    key: {value: 'seq'},
+    search: {value: 1}
+  }
+};
+
+export const byOwner = {
+  target: {
+    key: {value: 'owner'},
+    search: {value: 'Sean'}
+  }
+};
+
+export const byNone = {
+  target: {
+    key: {value: 'ownerssss'},
+    search: {value: 'Sean'}
+  }
+};
+
 export const event = {
   target: even
 };
