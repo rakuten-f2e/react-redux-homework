@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import TableRow from './TableRow';
+
 class Table extends React.Component{
   render(){
     const tableData = this.props.tableData;
@@ -9,7 +10,7 @@ class Table extends React.Component{
     tableRow = tableData.map((item, index) => {
       return(
         <TableRow
-          key={item.seq}
+          key={index+1}
           index={index+1}
           seq={item.seq} 
           status={item.status}

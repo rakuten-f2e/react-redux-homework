@@ -15,7 +15,7 @@ class TableRow extends React.Component{
         <td>{this.props.priority}</td>
       </tr>
     );
-  };
+  }
 }
 
 TableRow.propTypes = {
