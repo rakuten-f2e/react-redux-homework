@@ -1,5 +1,5 @@
 export const odd = {
-  index:361,
+  index:1,
   seq: 3,
   status: 'Open',
   category: 'cat5',
@@ -9,7 +9,7 @@ export const odd = {
 };
 
 export const even = {
-  index: 34,
+  index: 2,
   seq: 314,
   status: 'Close',
   category: 'cat1',
@@ -21,14 +21,14 @@ export const even = {
 export const bySeq = {
   target: {
     key: {value: 'seq'},
-    search: {value: 1}
+    search: {value: 3}
   }
 };
 
 export const byOwner = {
   target: {
     key: {value: 'owner'},
-    search: {value: 'Sean'}
+    search: {value: 'Sean6'}
   }
 };
 
@@ -39,11 +39,19 @@ export const byNone = {
   }
 };
 
-export const event = {
-  target: even
+export const createEvent = {
+  target: {
+    index: {value: 3},
+    seq: {value: 2},
+    status: {value: 'Open'},
+    category: {value: 'cat133'},
+    title: {value: 'title30'},
+    owner: {value: 'Nash'},
+    priority: {value: 'P5'}
+  }
 };
 
 export const mockData = [
   odd,
-  even,
+  even
 ];
