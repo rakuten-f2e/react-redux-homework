@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Delete from './Delete';
+import Update from './Update';
 
 class TableRow extends React.Component{
   render(){
@@ -24,7 +25,10 @@ class TableRow extends React.Component{
         <td>{this.props.title}</td>
         <td>{this.props.owner}</td>
         <td>{this.props.priority}</td>
-        <td><Delete rowData={rowData} onClick={this.props.onClick}/></td>
+        <td>
+          <Delete rowData={rowData} onDelete={this.props.onDelete}/>
+          <Update rowData={rowData} onUpdate={this.props.onUpdate}/>
+        </td>
       </tr>
     );
   }
@@ -38,7 +42,8 @@ TableRow.propTypes = {
   title: PropTypes.string,
   owner: PropTypes.string,
   priority: PropTypes.string,
-  onClick: PropTypes.func
+  onDelete: PropTypes.func,
+  onUpdate: PropTypes.func
 };
 
 export default TableRow;
