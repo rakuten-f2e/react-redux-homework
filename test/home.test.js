@@ -21,6 +21,14 @@ describe('<Home />', () => {
       wrapper.instance().receiveCreatedData(createEvent);
       expect(wrapper.state('data')).toHaveLength(originLength+1);
     });
+
+    describe('AND seq is duplicate', () => {
+      it('should have alert', () => {
+        const duplicateData = createEvent;
+        wrapper.instance().receiveCreatedData(duplicateData);
+        expect(wrapper.state('warning')).toBeTruthy();
+      });
+    });
   });
 
   describe('WHEN search data is submitted', () => {
@@ -48,9 +56,53 @@ describe('<Home />', () => {
 
   describe('WHEN Delete button is clicked', () => {
     it('should delete target row by index', () => {
-      const mockIndex = {index: 1};
+      const mockIndex = {seq: 3};
       wrapper.instance().receiveDeleteTarget(mockIndex);
       expect(wrapper.state('data')).toHaveLength(originLength);
+    });
+  });
+
+  describe('WHEN Update button is clicked', () => {
+    it('should display Update form', () => {
+      const mockTarget = {
+        isClicked: true,
+        index:1,
+        seq: 3,
+        status: 'Open',
+        category: 'cat5',
+        title: 'title500',
+        owner: 'Sean',
+        priority: 'P4'
+      };
+      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'none');
+      wrapper.instance().receiveUpdateTarget(mockTarget);
+      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'block');
+    });
+  });
+
+  describe('WHEN Update data is submitted', () => {
+    it('should change data of the target row', () => {
+      const mockUpdate = {
+        target: {
+          seq: {value: 212313412},
+          status: {value: 'Open'},
+          category: {value: 'cat133'},
+          title: {value: 'title30'},
+          owner: {value: 'Nash'},
+          priority: {value: 'P5'}
+        }
+      };
+      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'block');
+      wrapper.instance().receiveUpdateData(mockUpdate);
+      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'none');
+    });
+
+    describe('AND seq is duplicate', () => {
+      it('should have alert', () => {
+        const duplicateData = createEvent;
+        wrapper.instance().receiveUpdateData(duplicateData);
+        expect(wrapper.state('warning')).toBeTruthy();
+      });
     });
   });
 });
