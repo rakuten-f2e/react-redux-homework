@@ -9,7 +9,7 @@ class Delete extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    this.props.onDelete(this.props.rowData);
+    this.props.onDelete(this.props.target);
   }
 
   render(){
@@ -22,7 +22,7 @@ class Delete extends React.Component{
 }
 
 Delete.propTypes = {
-  rowData: PropTypes.object,
+  target: PropTypes.object,
   onDelete: PropTypes.func
 };
 

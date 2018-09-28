@@ -4,6 +4,10 @@ import TableRow from '../src/client/TableRow';
 import {odd, even} from './mockData';
 
 describe('WHEN odd Row is created', () => {
+  const updatedStyle = {
+    seq: 3,
+    color: 'red'
+  };
   const wrapper = shallow(<TableRow 
     key={odd.seq}
     index={odd.index}
@@ -13,7 +17,9 @@ describe('WHEN odd Row is created', () => {
     title={odd.title}
     owner={odd.owner}
     priority={odd.priority}
+    updatedStyle={updatedStyle}
   />);
+  
   it('should have seven cells', () => {
     expect(wrapper.find('td')).toHaveLength(7);
   });
@@ -24,6 +30,10 @@ describe('WHEN odd Row is created', () => {
 });
 
 describe('WHEN even Row is created', () => {
+  const updatedStyle = {
+    seq: 3,
+    color: 'red'
+  };
   const wrapper = shallow(<TableRow 
     key={even.seq}
     index={even.index}
@@ -33,7 +43,9 @@ describe('WHEN even Row is created', () => {
     title={even.title}
     owner={even.owner}
     priority={even.priority}
+    updatedStyle={updatedStyle}
   />);
+
   it('should have seven cells', () => {
     expect(wrapper.find('td')).toHaveLength(7);
   });

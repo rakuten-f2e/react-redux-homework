@@ -7,9 +7,8 @@ class Update extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
-    e.preventDefault();
-    this.props.onUpdate(this.props.rowData);
+  handleClick(){
+    this.props.onUpdate(this.props.target);
   }
 
   render(){
@@ -22,7 +21,7 @@ class Update extends React.Component{
 }
 
 Update.propTypes = {
-  rowData: PropTypes.object,
+  target: PropTypes.object,
   onUpdate: PropTypes.func
 };
 

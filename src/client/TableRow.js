@@ -7,18 +7,13 @@ class TableRow extends React.Component{
   render(){
     const isEven = (this.props.index % 2 === 0);
     const className = isEven ? 'table__row table__row--even' : 'table__row table__row--odd';
-    const rowData = {
-      index: this.props.index,
-      seq: this.props.seq,
-      status: this.props.status,
-      category: this.props.category,
-      title: this.props.title,
-      owner: this.props.owner,
-      priority: this.props.priority
+    const rowStyle = (this.props.updatedStyle.seq === this.props.seq) ? this.props.updatedStyle.color : '';
+    const target = {
+      seq: this.props.seq
     };
 
     return (
-      <tr className={className}>
+      <tr className={className} style={{backgroundColor: rowStyle}}>
         <td>{this.props.seq}</td>
         <td>{this.props.status}</td>
         <td>{this.props.category}</td>
@@ -26,8 +21,8 @@ class TableRow extends React.Component{
         <td>{this.props.owner}</td>
         <td>{this.props.priority}</td>
         <td>
-          <Delete rowData={rowData} onDelete={this.props.onDelete}/>
-          <Update rowData={rowData} onUpdate={this.props.onUpdate}/>
+          <Delete target={target} onDelete={this.props.onDelete}/>
+          <Update target={target} onUpdate={this.props.onUpdate}/>
         </td>
       </tr>
     );
@@ -43,7 +38,8 @@ TableRow.propTypes = {
   owner: PropTypes.string,
   priority: PropTypes.string,
   onDelete: PropTypes.func,
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  updatedStyle: PropTypes.object
 };
 
 export default TableRow;

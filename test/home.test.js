@@ -15,6 +15,48 @@ describe('<Home />', () => {
   const originLength = mockData.length;
   wrapper.setState({data: mockData, root: mockData});
 
+  describe('WHEN no button is clicked', () => {
+    wrapper.setState({isCreate: false});
+    it('should not set new state', () => {
+      const mockEvent = {
+        target: {
+          value: 'false',
+          name: ''
+        }
+      };
+      wrapper.instance().onClicked(mockEvent);
+      expect(wrapper.state('isCreate')).toEqual(false);
+    });
+  });
+
+  describe('WHEN create button is clicked', () => {
+    wrapper.setState({isCreate: false});
+    it('should set new state', () => {
+      const mockEvent = {
+        target: {
+          value: 'false',
+          name: 'create'
+        }
+      };
+      wrapper.instance().onClicked(mockEvent);
+      expect(wrapper.state('isCreate')).toEqual(true);
+    });
+  });
+
+  describe('WHEN read button is clicked', () => {
+    wrapper.setState({isRead: true});
+    it('should set new state', () => {
+      const mockEvent = {
+        target: {
+          value: 'true',
+          name: 'read'
+        }
+      };
+      wrapper.instance().onClicked(mockEvent);
+      expect(wrapper.state('isRead')).toEqual(false);
+    });
+  });
+
   describe('WHEN created data is submitted', () => {
     it('should set new state', () => {      
       expect(wrapper.state('data')).toHaveLength(originLength);
@@ -50,6 +92,19 @@ describe('<Home />', () => {
       it('should not do anything', () => {
         wrapper.instance().receiveSearchData(byNone);
         expect(wrapper.state('data')).toHaveLength(0);
+      });
+    });
+
+    describe('AND search input is empty', () => {
+      it('should have entire table data', () => {
+        const emptySearch = {
+          target: {
+            key: {value: 'seq'},
+            search: {value: ''}
+          }
+        };
+        wrapper.instance().receiveSearchData(emptySearch);
+        expect(wrapper.state('data')).toHaveLength(originLength+1);
       });
     });
   });

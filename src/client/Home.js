@@ -10,12 +10,37 @@ import Footer from './Footer';
 class Home extends React.Component {
   constructor(props){
     super(props);
-    this.state = {data: data, root: data, update: {}, warning: false, display: 'none'};
+    this.state = {
+      data: data, 
+      root: data, 
+      update: {}, 
+      warning: false,
+      warningMessage: '',
+      display: 'none',
+      isCreate: false,
+      isRead: false
+    };
+
+    this.onClicked = this.onClicked.bind(this);
     this.receiveCreatedData = this.receiveCreatedData.bind(this);
     this.receiveSearchData = this.receiveSearchData.bind(this);
     this.receiveDeleteTarget = this.receiveDeleteTarget.bind(this);
     this.receiveUpdateTarget = this.receiveUpdateTarget.bind(this);
     this.receiveUpdateData = this.receiveUpdateData.bind(this);
+  }
+
+  onClicked(e){
+    const toBool = (e.target.value === 'false');
+    switch(e.target.name){
+    case 'create':
+      this.setState({isCreate: toBool});
+      break;
+    case 'read':
+      this.setState({isRead: toBool});
+      break;
+    default:
+      break;
+    }
   }
 
   receiveCreatedData(e){
@@ -83,7 +108,11 @@ class Home extends React.Component {
         owner: e.target.owner.value,
         priority: e.target.priority.value
       };
-      this.setState({data: tableData, root: this.state.root, warning: false, display: 'none'});
+      const updatedRowData = {
+        seq: parseInt(e.target.seq.value, 10),
+        color: 'lightblue'
+      };
+      this.setState({data: tableData, root: this.state.root, warning: false, display: 'none', update: updatedRowData});
     }
     else{
       this.setState({data: tableData, root: this.state.root, warning: true});
@@ -96,13 +125,14 @@ class Home extends React.Component {
         <div className="home__container">
           <h1>React-Redux Homework</h1>
           <div className="home__toolbar">
-            <Create receiveCreatedData={this.receiveCreatedData}/>
-            <Read receiveSearchData={this.receiveSearchData}/>
+            <Create receiveCreatedData={this.receiveCreatedData} onCreate={this.onClicked} isClicked={this.state.isCreate}/>
+            <Read receiveSearchData={this.receiveSearchData} onRead={this.onClicked} isClicked={this.state.isCreate}/>
           </div>
           <Table 
             tableData={this.state.data} 
             receiveDeleteTarget={this.receiveDeleteTarget}
             receiveUpdateTarget={this.receiveUpdateTarget}
+            updatedStyle={this.state.update}
           />
           <div className="home__update" style={{display: this.state.display}}>
             <CreateRow 

@@ -10,7 +10,7 @@ class Table extends React.Component{
     tableRow = tableData.map((item, index) => {
       return(
         <TableRow
-          key={index+1}
+          key={item.seq}
           index={index+1}
           seq={item.seq} 
           status={item.status}
@@ -20,6 +20,7 @@ class Table extends React.Component{
           priority={item.priority}
           onDelete={this.props.receiveDeleteTarget}
           onUpdate={this.props.receiveUpdateTarget}
+          updatedStyle={this.props.updatedStyle}
         />
       );
     });
@@ -50,7 +51,8 @@ class Table extends React.Component{
 Table.propTypes = {
   tableData: PropTypes.array.isRequired,
   receiveDeleteTarget: PropTypes.func,
-  receiveUpdateTarget: PropTypes.func
+  receiveUpdateTarget: PropTypes.func,
+  updatedStyle: PropTypes.object
 };
 
 export default Table;

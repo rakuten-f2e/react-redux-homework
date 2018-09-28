@@ -5,28 +5,27 @@ import CreateRow from './CreateRow';
 class Create extends React.Component{
   constructor(props){
     super(props);
-    this.state = {isClicked: false};
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
-    this.setState({
-      isClicked: !this.state.isClicked
-    });
+  handleClick(e){
+    this.props.onCreate(e);
   }
 
   render(){
     return(
       <div className="create">
-        <button className="create__btn" onClick={this.handleClick}>Create</button>
-        <CreateRow isClicked={this.state.isClicked} onSubmit={this.props.receiveCreatedData}/>
+        <button className="create__btn" value={this.props.isClicked} name="create" onClick={this.handleClick}>Create</button>
+        <CreateRow isClicked={this.props.isClicked} onSubmit={this.props.receiveCreatedData}/>
       </div>
     );
   }
 }
 
 Create.propTypes = {
-  receiveCreatedData: PropTypes.func
+  receiveCreatedData: PropTypes.func,
+  onCreate: PropTypes.func,
+  isClicked: PropTypes.bool
 };
 
 export default Create;
