@@ -1,0 +1,31 @@
+.home {
+  text-align: center;
+}
+
+.table__main {
+  border: solid;
+  margin-top: 36px;
+}
+
+.table__header {
+  background-color: grey;
+}
+
+.table__row  td {
+  padding: 10px;
+}
+
+.table__row--even {
+  background-color: lightgrey;
+}
+
+.footer {
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.footer__container p {
+  line-height: 1px;
+}
