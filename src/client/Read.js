@@ -11,14 +11,14 @@ class Read extends React.Component{
 
   handleClick(){
     this.setState({
-      isClicked: true
+      isClicked: !this.state.isClicked
     });
   }
 
   render(){
     return(
       <div className="read">
-        <button className="btn__read" onClick={this.handleClick}>Read</button>
+        <button className="read__btn" onClick={this.handleClick}>Read</button>
         <ReadTable isClicked={this.state.isClicked} onSubmit={this.props.receiveSearchData}/>
       </div>
     );

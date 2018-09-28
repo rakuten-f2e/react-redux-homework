@@ -22,7 +22,7 @@ class ReadTable extends React.Component{
             <input type="radio" name="key" value="owner"/> ByOwner 
           </label>
           <label>
-            <input type="text" name="search" required/>
+            <input type="text" name="search"/>
           </label>
           <input type="submit" text="submit" />
         </form>

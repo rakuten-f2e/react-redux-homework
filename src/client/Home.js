@@ -43,7 +43,10 @@ class Home extends React.Component {
   receiveSearchData(e){
     let tableData = this.state.root;
 
-    if(e.target.key.value === 'seq'){
+    if(e.target.search.value === ''){
+      this.setState({data: tableData, root: this.state.root, warning: false});
+    }
+    else if(e.target.key.value === 'seq'){
       const queryData = tableData.filter(data => data.seq === parseInt(e.target.search.value, 10));
       this.setState({data: queryData, root: this.state.root, warning: false});
     }

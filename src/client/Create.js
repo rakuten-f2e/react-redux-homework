@@ -11,14 +11,14 @@ class Create extends React.Component{
 
   handleClick(){
     this.setState({
-      isClicked: true
+      isClicked: !this.state.isClicked
     });
   }
 
   render(){
     return(
       <div className="create">
-        <button className="btn__create" onClick={this.handleClick}>Create</button>
+        <button className="create__btn" onClick={this.handleClick}>Create</button>
         <CreateRow isClicked={this.state.isClicked} onSubmit={this.props.receiveCreatedData}/>
       </div>
     );
