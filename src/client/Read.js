@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReadTable from './ReadTable';
+import ReadTable from './readTable';
 
 class Read extends React.Component{
   constructor(props){
@@ -9,14 +9,16 @@ class Read extends React.Component{
   }
 
   handleClick(e){
-    this.props.onRead(e);
+    const { onRead } = this.props;
+    onRead(e);
   }
 
   render(){
+    const { isClicked, receiveSearchData } = this.props;
     return(
       <div className="read">
-        <button className="read__btn" onClick={this.handleClick}>Read</button>
-        <ReadTable isClicked={this.props.isClicked} onSubmit={this.props.receiveSearchData}/>
+        <button type="button" className="read__btn" value={isClicked} name="read" onClick={this.handleClick}>Read</button>
+        <ReadTable isClicked={isClicked} onSubmit={receiveSearchData} />
       </div>
     );
   }
@@ -26,6 +28,12 @@ Read.propTypes = {
   receiveSearchData: PropTypes.func,
   onRead: PropTypes.func,
   isClicked: PropTypes.bool
+};
+
+Read.defaultProps = {
+  receiveSearchData: () => {},
+  onRead: () => {},
+  isClicked: false
 };
 
 export default Read;

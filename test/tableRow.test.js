@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import TableRow from '../src/client/TableRow';
+import TableRow from '../src/client/tableRow';
 import {odd, even} from './mockData';
 
 describe('WHEN odd Row is created', () => {

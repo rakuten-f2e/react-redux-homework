@@ -1,10 +1,10 @@
 import React from 'react';
-import Update from '../src/client/Update';
 import {shallow} from 'enzyme';
+import Update from '../src/client/update';
 
 describe('<Update />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Update onUpdate={mockFunc}/>);
+  const wrapper = shallow(<Update onUpdate={mockFunc} />);
   describe('WHEN table is created', () => {
     it('should have Update button', () => {
       expect(wrapper.find('button')).toHaveLength(1);

@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import ReadTable from '../src/client/ReadTable';
+import ReadTable from '../src/client/readTable';
 
 describe('<ReadTable />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<ReadTable onSubmit={mockFunc}/>);
+  const wrapper = shallow(<ReadTable onSubmit={mockFunc} />);
 
   describe('WHEN users connect to the website', () => {
     it('should have inputs', () => {

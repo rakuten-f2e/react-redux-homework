@@ -20,13 +20,17 @@ class Footer extends React.Component{
   }
 
   render(){
+    const { date } = this.state;
     return (
       <div className="footer">
         <hr />
         <footer className="footer__container">
           <p>Contribute by Li-Hsuan Hsieh</p>
-          <p>E-mail: <a href="mailto:ss77995ss@gmai.com">ss77995ss@gmail.com</a></p>
-          <p>{this.state.date.toLocaleTimeString()}</p>
+          <p>
+            E-mail: 
+            <a href="mailto:ss77995ss@gmai.com">ss77995ss@gmail.com</a>
+          </p>
+          <p>{date.toLocaleTimeString()}</p>
         </footer>
       </div>
     ); 

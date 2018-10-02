@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import CreateRow from '../src/client/CreateRow';
+import CreateRow from '../src/client/createRow';
 
 describe('<CreateRow />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<CreateRow onSubmit={mockFunc}/>);
+  const wrapper = shallow(<CreateRow onSubmit={mockFunc} />);
   describe('WHEN users connect to the website', () => {
     it('should have inputs', () => {
       expect(wrapper.find('input')).toHaveLength(7);

@@ -1,11 +1,11 @@
 import React from 'react';
 import './home.css';
 import data from './data.json';
-import Create from './Create';
-import CreateRow from './CreateRow';
-import Read from './Read';
-import Table from './Table';
-import Footer from './Footer';
+import Create from './create';
+import CreateRow from './createRow';
+import Read from './read';
+import Table from './table';
+import Footer from './footer';
 
 class Home extends React.Component {
   constructor(props){
@@ -13,9 +13,7 @@ class Home extends React.Component {
     this.state = {
       data: data, 
       root: data, 
-      update: {}, 
-      warning: false,
-      warningMessage: '',
+      update: {},
       display: 'none',
       isCreate: false,
       isRead: false
@@ -44,7 +42,8 @@ class Home extends React.Component {
   }
 
   receiveCreatedData(e){
-    let tableData = this.state.root;
+    const { root } = this.state;
+    let tableData = root;
     const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(e.target.seq.value, 10));
     
     if(isSeqDuplicate === -1){
@@ -58,35 +57,37 @@ class Home extends React.Component {
       };
       
       tableData.push(newData);
-      this.setState({data: tableData, root: this.state.root, warning: false});
+      this.setState({data: tableData});
     }
     else{
-      this.setState({data: tableData, root: this.state.root, warning: true});
+      this.setState({data: tableData});
     }
   }
 
   receiveSearchData(e){
-    let tableData = this.state.root;
+    const { root } = this.state;
+    let tableData = root;
 
     if(e.target.search.value === ''){
-      this.setState({data: tableData, root: this.state.root, warning: false});
+      this.setState({data: tableData});
     }
     else if(e.target.key.value === 'seq'){
       const queryData = tableData.filter(data => data.seq === parseInt(e.target.search.value, 10));
-      this.setState({data: queryData, root: this.state.root, warning: false});
+      this.setState({data: queryData});
     }
     else if(e.target.key.value === 'owner'){
-      const queryData = tableData.filter(data => data.owner === e.target.search.value);
-      this.setState({data: queryData, root: this.state.root, warning: false});
+      const queryData = tableData.filter(data => data.owner.toLowerCase().indexOf(e.target.search.value.toLowerCase()) > -1);
+      this.setState({data: queryData});
     }
   }
 
   receiveDeleteTarget(e){
-    let tableData = this.state.root;
+    const { root } = this.state;
+    let tableData = root;
     const index = tableData.map(data => data.seq).indexOf(e.seq);
 
     tableData.splice(index, 1);
-    this.setState({data: tableData, root: this.state.root, warning: false});
+    this.setState({data: tableData});
   }
 
   receiveUpdateTarget(e){
@@ -95,8 +96,9 @@ class Home extends React.Component {
   }
 
   receiveUpdateData(e){
-    let tableData = this.state.root;
-    const index = tableData.map(data => data.seq).indexOf(this.state.update.seq);
+    const { root, update } = this.state;
+    let tableData = root;
+    const index = tableData.map(data => data.seq).indexOf(update.seq);
     const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(e.target.seq.value, 10));
 
     if(isSeqDuplicate === -1 || parseInt(e.target.seq.value, 10) === tableData[index].seq){
@@ -112,31 +114,32 @@ class Home extends React.Component {
         seq: parseInt(e.target.seq.value, 10),
         color: 'lightblue'
       };
-      this.setState({data: tableData, root: this.state.root, warning: false, display: 'none', update: updatedRowData});
+      this.setState({data: tableData, display: 'none', update: updatedRowData});
     }
     else{
-      this.setState({data: tableData, root: this.state.root, warning: true});
+      this.setState({data: tableData});
     }
   }
 
   render() {
+    const { data, update, display, isCreate, isRead } = this.state;
     return (
       <div className="home">
         <div className="home__container">
           <h1>React-Redux Homework</h1>
           <div className="home__toolbar">
-            <Create receiveCreatedData={this.receiveCreatedData} onCreate={this.onClicked} isClicked={this.state.isCreate}/>
-            <Read receiveSearchData={this.receiveSearchData} onRead={this.onClicked} isClicked={this.state.isCreate}/>
+            <Create receiveCreatedData={this.receiveCreatedData} onCreate={this.onClicked} isClicked={isCreate} />
+            <Read receiveSearchData={this.receiveSearchData} onRead={this.onClicked} isClicked={isRead} />
           </div>
           <Table 
-            tableData={this.state.data} 
+            tableData={data} 
             receiveDeleteTarget={this.receiveDeleteTarget}
             receiveUpdateTarget={this.receiveUpdateTarget}
-            updatedStyle={this.state.update}
+            updatedStyle={update}
           />
-          <div className="home__update" style={{display: this.state.display}}>
+          <div className="home__update" style={{display: display}}>
             <CreateRow 
-              isClicked={this.state.update.isClicked}
+              isClicked={update.isClicked}
               onSubmit={this.receiveUpdateData}
             />
           </div>

@@ -8,21 +8,29 @@ class Update extends React.Component{
   }
 
   handleClick(){
-    this.props.onUpdate(this.props.target);
+    const { target, onUpdate } = this.props;
+    onUpdate(target);
   }
 
   render(){
     return(
       <div className="update">
-        <button className="update__btn" onClick={this.handleClick}>Update</button>
+        <button type="button" className="update__btn" onClick={this.handleClick}>Update</button>
       </div>
     );
   }
 }
 
 Update.propTypes = {
-  target: PropTypes.object,
+  target: PropTypes.shape({
+    seq: PropTypes.number
+  }),
   onUpdate: PropTypes.func
+};
+
+Update.defaultProps = {
+  target: {},
+  onUpdate: () => {}
 };
 
 export default Update;

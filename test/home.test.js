@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {createEvent, bySeq, byOwner, byNone, mockData} from './mockData';
-import Home from '../src/client/Home';
+import Home from '../src/client/home';
 
 describe('<Home />', () => {
   describe('WHEN users connect to Home', () => {

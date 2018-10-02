@@ -8,22 +8,30 @@ class Delete extends React.Component{
   }
 
   handleClick(e){
+    const { target, onDelete } = this.props;
     e.preventDefault();
-    this.props.onDelete(this.props.target);
+    onDelete(target);
   }
 
   render(){
     return(
       <div className="delete">
-        <button className="delete__btn" onClick={this.handleClick}>Delete</button>
+        <button type="button" className="delete__btn" onClick={this.handleClick}>Delete</button>
       </div>
     );
   }
 }
 
 Delete.propTypes = {
-  target: PropTypes.object,
+  target: PropTypes.shape({
+    seq: PropTypes.number
+  }),
   onDelete: PropTypes.func
+};
+
+Delete.defaultProps = {
+  target: {},
+  onDelete: () => {}
 };
 
 export default Delete;
