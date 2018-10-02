@@ -40,14 +40,14 @@ function Table (props){
 }
 
 Table.propTypes = {
-  tableData: PropTypes.arrayOf({
+  tableData: PropTypes.arrayOf(PropTypes.shape({
     seq: PropTypes.number,
     status: PropTypes.string,
     category: PropTypes.string,
     title: PropTypes.string,
     owner: PropTypes.string,
     priority: PropTypes.string
-  }),
+  })),
   receiveDeleteTarget: PropTypes.func,
   receiveUpdateTarget: PropTypes.func,
   updatedStyle: PropTypes.shape({

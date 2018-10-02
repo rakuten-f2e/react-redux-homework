@@ -1,9 +1,9 @@
 import React from 'react';
-import './home.css';
-import data from './data.json';
-import Create from './create';
-import CreateRow from './createRow';
-import Read from './read';
+import '../assets/home.css';
+import data from '../data/data.json';
+import Create from '../action/create';
+import CreateRow from '../action/createRow';
+import Read from '../action/read';
 import Table from './table';
 import Footer from './footer';
 
@@ -59,9 +59,9 @@ class Home extends React.Component {
       tableData.push(newData);
       this.setState({data: tableData});
     }
-    else{
-      this.setState({data: tableData});
-    }
+    // else{
+    //   this.setState({data: tableData});
+    // }
   }
 
   receiveSearchData(e){
@@ -116,9 +116,9 @@ class Home extends React.Component {
       };
       this.setState({data: tableData, display: 'none', update: updatedRowData});
     }
-    else{
-      this.setState({data: tableData});
-    }
+    // else{
+    //   this.setState({data: tableData});
+    // }
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Delete from './delete';
-import Update from './update';
+import Delete from '../action/delete';
+import Update from '../action/update';
 
 function TableRow (props){
   const { index, row, updatedStyle, onDelete, onUpdate } = props;
