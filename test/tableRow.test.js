@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import TableRow from '../src/client/tableRow';
+import TableRow from '../src/client/site/tableRow';
 import {odd, even} from './mockData';
 
 describe('WHEN odd Row is created', () => {
@@ -11,12 +11,7 @@ describe('WHEN odd Row is created', () => {
   const wrapper = shallow(<TableRow 
     key={odd.seq}
     index={odd.index}
-    seq={odd.seq}
-    status={odd.status}
-    category={odd.category}
-    title={odd.title}
-    owner={odd.owner}
-    priority={odd.priority}
+    row={odd}
     updatedStyle={updatedStyle}
   />);
   
@@ -37,12 +32,7 @@ describe('WHEN even Row is created', () => {
   const wrapper = shallow(<TableRow 
     key={even.seq}
     index={even.index}
-    seq={even.seq}
-    status={even.status}
-    category={even.category}
-    title={even.title}
-    owner={even.owner}
-    priority={even.priority}
+    row={even}
     updatedStyle={updatedStyle}
   />);
 
@@ -53,4 +43,16 @@ describe('WHEN even Row is created', () => {
   it('should have className "table__row table__row--even"', () => {
     expect(wrapper.find('tr').hasClass('table__row table__row--even')).toBeTruthy();
   });
+
+  describe('WHEN Row is updated', () => {
+    const newStyle = {
+      seq: 314,
+      color: 'light-red'
+    };
+    wrapper.setProps({updatedStyle: newStyle});
+    it('should change color', () => {
+      expect(wrapper.find('tr').prop('style')).toHaveProperty('backgroundColor', 'light-red');
+    });
+  });
 });
+

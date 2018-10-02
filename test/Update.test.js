@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Update from '../src/client/update';
+import Update from '../src/client/action/update';
 
 describe('<Update />', () => {
   const mockFunc = jest.fn();

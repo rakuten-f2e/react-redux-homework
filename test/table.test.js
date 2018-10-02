@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Table from '../src/client/table';
+import Table from '../src/client/site/table';
 import {mockData} from './mockData';
 
 describe('<Table />', () => {
