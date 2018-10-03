@@ -16,7 +16,8 @@ class Home extends React.Component {
       update: {},
       display: 'none',
       isCreate: false,
-      isRead: false
+      isRead: false,
+      warning: ''
     };
 
     this.onClicked = this.onClicked.bind(this);
@@ -41,42 +42,42 @@ class Home extends React.Component {
     }
   }
 
-  receiveCreatedData(e){
+  receiveCreatedData(formData){
     const { root } = this.state;
     let tableData = root;
-    const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(e.target.seq.value, 10));
+    const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(formData.seq, 10));
     
     if(isSeqDuplicate === -1){
       const newData = {
-        seq: parseInt(e.target.seq.value, 10),
-        status: e.target.status.value,
-        category: e.target.category.value,
-        title: e.target.title.value,
-        owner: e.target.owner.value,
-        priority: e.target.priority.value
+        seq: parseInt(formData.seq, 10),
+        status: formData.status,
+        category: formData.category,
+        title: formData.title,
+        owner: formData.owner,
+        priority: formData.priority
       };
       
       tableData.push(newData);
-      this.setState({data: tableData});
+      this.setState({data: tableData, warning: ''});
     }
-    // else{
-    //   this.setState({data: tableData});
-    // }
+    else{
+      this.setState({warning: 'Seq cannot be duplicated'});
+    }
   }
 
-  receiveSearchData(e){
+  receiveSearchData(searchData){
     const { root } = this.state;
     let tableData = root;
 
-    if(e.target.search.value === ''){
+    if(searchData.search === ''){
       this.setState({data: tableData});
     }
-    else if(e.target.key.value === 'seq'){
-      const queryData = tableData.filter(data => data.seq === parseInt(e.target.search.value, 10));
+    else if(searchData.key === 'seq'){
+      const queryData = tableData.filter(data => data.seq === parseInt(searchData.search, 10));
       this.setState({data: queryData});
     }
-    else if(e.target.key.value === 'owner'){
-      const queryData = tableData.filter(data => data.owner.toLowerCase().indexOf(e.target.search.value.toLowerCase()) > -1);
+    else if(searchData.key === 'owner'){
+      const queryData = tableData.filter(data => data.owner.toLowerCase().indexOf(searchData.search.toLowerCase()) > -1);
       this.setState({data: queryData});
     }
   }
@@ -95,38 +96,39 @@ class Home extends React.Component {
     this.setState({update: e, display: 'block'});
   }
 
-  receiveUpdateData(e){
+  receiveUpdateData(formData){
     const { root, update } = this.state;
     let tableData = root;
     const index = tableData.map(data => data.seq).indexOf(update.seq);
-    const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(e.target.seq.value, 10));
+    const isSeqDuplicate = tableData.map(data => data.seq).indexOf(parseInt(formData.seq, 10));
 
-    if(isSeqDuplicate === -1 || parseInt(e.target.seq.value, 10) === tableData[index].seq){
+    if(isSeqDuplicate === -1 || parseInt(formData.seq, 10) === tableData[index].seq){
       tableData[index] = {
-        seq: parseInt(e.target.seq.value, 10),
-        status: e.target.status.value,
-        category: e.target.category.value,
-        title: e.target.title.value,
-        owner: e.target.owner.value,
-        priority: e.target.priority.value
+        seq: parseInt(formData.seq, 10),
+        status: formData.status,
+        category: formData.category,
+        title: formData.title,
+        owner: formData.owner,
+        priority: formData.priority
       };
       const updatedRowData = {
-        seq: parseInt(e.target.seq.value, 10),
+        seq: parseInt(formData.seq, 10),
         color: 'lightblue'
       };
-      this.setState({data: tableData, display: 'none', update: updatedRowData});
+      this.setState({data: tableData, display: 'none', update: updatedRowData, warning: ''});
     }
-    // else{
-    //   this.setState({data: tableData});
-    // }
+    else{
+      this.setState({warning: 'Seq cannot be duplicated'});
+    }
   }
 
   render() {
-    const { data, update, display, isCreate, isRead } = this.state;
+    const { data, update, display, isCreate, isRead, warning } = this.state;
     return (
       <div className="home">
         <div className="home__container">
           <h1>React-Redux Homework</h1>
+          <p style={{color: 'red'}}>{warning}</p>
           <div className="home__toolbar">
             <Create receiveCreatedData={this.receiveCreatedData} onCreate={this.onClicked} isClicked={isCreate} />
             <Read receiveSearchData={this.receiveSearchData} onRead={this.onClicked} isClicked={isRead} />
