@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {createEvent, bySeq, byOwner, byNone, mockData} from './mockData';
-import Home from '../src/client/site/home';
+import {createEvent, bySeq, byOwner, byNone, mockData} from '../data/mockData';
+import Home from '../../src/client/site/home';
 
 describe('<Home />', () => {
   describe('WHEN users connect to Home', () => {
@@ -57,20 +57,21 @@ describe('<Home />', () => {
     });
   });
 
-  describe('WHEN created data is submitted', () => {
-    it('should set new state', () => {      
-      expect(wrapper.state('data')).toHaveLength(originLength);
-      wrapper.instance().receiveCreatedData(createEvent);
-      expect(wrapper.state('data')).toHaveLength(originLength+1);
+  describe('WHEN receive Create data', () => {
+    describe('AND create data is submitted', () => {
+      it('should set new state', () => {      
+        expect(wrapper.state('data')).toHaveLength(originLength);
+        wrapper.instance().receiveCreatedData(createEvent);
+        expect(wrapper.state('data')).toHaveLength(originLength+1);
+      });
     });
 
-    // describe('AND seq is duplicate', () => {
-    //   it('should have alert', () => {
-    //     const duplicateData = createEvent;
-    //     wrapper.instance().receiveCreatedData(duplicateData);
-    //     expect(wrapper.state('warning')).toBeTruthy();
-    //   });
-    // });
+    describe('AND create seq is duplicate', () => {
+      it('should not do anything', () => {
+        wrapper.instance().receiveCreatedData(createEvent);
+        expect(wrapper.state('data')).toHaveLength(originLength+1);
+      });
+    });
   });
 
   describe('WHEN search data is submitted', () => {
@@ -132,6 +133,7 @@ describe('<Home />', () => {
       expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'none');
       wrapper.instance().receiveUpdateTarget(mockTarget);
       expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'block');
+      expect(wrapper.state('update') !== 'undefined').toBeTruthy();
     });
   });
 
@@ -147,17 +149,17 @@ describe('<Home />', () => {
           priority: {value: 'P5'}
         }
       };
-      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'block');
+      const update = {
+        seq: 2
+      };
+      wrapper.setState({update: update});
       wrapper.instance().receiveUpdateData(mockUpdate);
-      expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'none');
+      const duplicateData = {
+        seq: 314
+      };
+      wrapper.setState({update: duplicateData});
+      wrapper.instance().receiveUpdateData(mockUpdate);
+      expect(wrapper.state('warning')).toBe('Seq cannot be duplicated');
     });
-
-    // describe('AND seq is duplicate', () => {
-    //   it('should have alert', () => {
-    //     const duplicateData = createEvent;
-    //     wrapper.instance().receiveUpdateData(duplicateData);
-    //     expect(wrapper.state('warning')).toBeTruthy();
-    //   });
-    // });
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Table from '../src/client/site/table';
-import {mockData} from './mockData';
+import Table from '../../src/client/site/table';
+import {mockData} from '../data/mockData';
 
 describe('<Table />', () => {
   describe('When users connect to the website', () => {

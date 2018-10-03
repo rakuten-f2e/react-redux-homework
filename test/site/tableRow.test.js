@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import TableRow from '../src/client/site/tableRow';
-import {odd, even} from './mockData';
+import TableRow from '../../src/client/site/tableRow';
+import {odd, even} from '../data/mockData';
 
 describe('WHEN odd Row is created', () => {
   const updatedStyle = {

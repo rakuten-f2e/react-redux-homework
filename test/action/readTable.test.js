@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import ReadTable from '../src/client/action/readTable';
+import ReadTable from '../../src/client/action/readTable';
 
 describe('<ReadTable />', () => {
   const mockFunc = jest.fn();

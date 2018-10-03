@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import CreateRow from '../src/client/action/createRow';
+import CreateRow from '../../src/client/action/createRow';
 
 describe('<CreateRow />', () => {
   const mockFunc = jest.fn();

@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Read from '../src/client/action/read';
+import Create from '../../src/client/action/create';
 
-describe('<Read />', () => {
+describe('<Create />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Read onRead={mockFunc} />);
+  const wrapper = shallow(<Create onCreate={mockFunc} />);
 
   describe('WHEN users connect to the website', () => {
     it('should display button', () => {

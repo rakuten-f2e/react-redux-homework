@@ -1,17 +1,17 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Delete from '../src/client/action/delete';
+import Update from '../../src/client/action/update';
 
-describe('<Delete />', () => {
+describe('<Update />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Delete onDelete={mockFunc} />);
+  const wrapper = shallow(<Update onUpdate={mockFunc} />);
   describe('WHEN table is created', () => {
-    it('should have Delete button', () => {
+    it('should have Update button', () => {
       expect(wrapper.find('button')).toHaveLength(1);
     });
   });
 
-  describe('WHEN Delete button is clicked', () => {
+  describe('WHEN Update button is clicked', () => {
     it('should call handleClick', () => {
       wrapper.find('button').simulate('click', { preventDefault() {}});
       expect(mockFunc).toHaveBeenCalled();
