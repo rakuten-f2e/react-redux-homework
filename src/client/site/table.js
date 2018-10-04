@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { rowPropType, updatePropType } from '../data/shape';
 import TableRow from './tableRow';
 
 function Table (props){
@@ -40,20 +41,10 @@ function Table (props){
 }
 
 Table.propTypes = {
-  tableData: PropTypes.arrayOf(PropTypes.shape({
-    seq: PropTypes.number,
-    status: PropTypes.string,
-    category: PropTypes.string,
-    title: PropTypes.string,
-    owner: PropTypes.string,
-    priority: PropTypes.string
-  })),
+  tableData: PropTypes.arrayOf(rowPropType),
   receiveDeleteTarget: PropTypes.func,
   receiveUpdateTarget: PropTypes.func,
-  updatedStyle: PropTypes.shape({
-    seq: PropTypes.number,
-    color: PropTypes.string
-  })
+  updatedStyle: updatePropType
 };
 
 Table.defaultProps = {
