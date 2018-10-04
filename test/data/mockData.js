@@ -19,35 +19,41 @@ export const even = {
 };
 
 export const bySeq = {
-  target: {
-    key: {value: 'seq'},
-    search: {value: 3}
-  }
+  key: 'seq',
+  search: 3
 };
 
 export const byOwner = {
-  target: {
-    key: {value: 'owner'},
-    search: {value: 'Sean6'}
-  }
+  key: 'owner',
+  search: 'Seandjkf'
 };
 
 export const byNone = {
+  key: 'dfjaskfas',
+  search: 'Sean'
+};
+
+export const mockCreate = {
+  index: 3,
+  seq: 2,
+  status: 'Open',
+  category: 'cat133',
+  title: 'title30',
+  owner: 'Nash',
+  priority: 'P5'
+};
+
+export const mockInput = {
   target: {
-    key: {value: 'ownerssss'},
-    search: {value: 'Sean'}
+    name: 'seq',
+    value: 123
   }
 };
 
-export const createEvent = {
+export const mockSearch = {
   target: {
-    index: {value: 3},
-    seq: {value: 2},
-    status: {value: 'Open'},
-    category: {value: 'cat133'},
-    title: {value: 'title30'},
-    owner: {value: 'Nash'},
-    priority: {value: 'P5'}
+    name: 'key',
+    value: 'seq'
   }
 };
 
@@ -55,3 +61,14 @@ export const mockData = [
   odd,
   even
 ];
+
+export const mockTarget = {
+  isClicked: true,
+  index:1,
+  seq: 3,
+  status: 'Open',
+  category: 'cat5',
+  title: 'title500',
+  owner: 'Sean',
+  priority: 'P4'
+};

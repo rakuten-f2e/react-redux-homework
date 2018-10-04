@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {createEvent, bySeq, byOwner, byNone, mockData} from '../data/mockData';
+import { mockTarget, mockCreate, bySeq, byOwner, byNone, mockData } from '../data/mockData';
 import Home from '../../src/client/site/home';
 
 describe('<Home />', () => {
@@ -61,14 +61,14 @@ describe('<Home />', () => {
     describe('AND create data is submitted', () => {
       it('should set new state', () => {      
         expect(wrapper.state('data')).toHaveLength(originLength);
-        wrapper.instance().receiveCreatedData(createEvent);
+        wrapper.instance().receiveCreatedData(mockCreate);
         expect(wrapper.state('data')).toHaveLength(originLength+1);
       });
     });
 
     describe('AND create seq is duplicate', () => {
       it('should not do anything', () => {
-        wrapper.instance().receiveCreatedData(createEvent);
+        wrapper.instance().receiveCreatedData(mockCreate);
         expect(wrapper.state('data')).toHaveLength(originLength+1);
       });
     });
@@ -99,10 +99,8 @@ describe('<Home />', () => {
     describe('AND search input is empty', () => {
       it('should have entire table data', () => {
         const emptySearch = {
-          target: {
-            key: {value: 'seq'},
-            search: {value: ''}
-          }
+          key: 'seq',
+          search: ''
         };
         wrapper.instance().receiveSearchData(emptySearch);
         expect(wrapper.state('data')).toHaveLength(originLength+1);
@@ -120,16 +118,6 @@ describe('<Home />', () => {
 
   describe('WHEN Update button is clicked', () => {
     it('should display Update form', () => {
-      const mockTarget = {
-        isClicked: true,
-        index:1,
-        seq: 3,
-        status: 'Open',
-        category: 'cat5',
-        title: 'title500',
-        owner: 'Sean',
-        priority: 'P4'
-      };
       expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'none');
       wrapper.instance().receiveUpdateTarget(mockTarget);
       expect(wrapper.find('.home__update').prop('style')).toHaveProperty('display', 'block');
@@ -139,26 +127,16 @@ describe('<Home />', () => {
 
   describe('WHEN Update data is submitted', () => {
     it('should change data of the target row', () => {
-      const mockUpdate = {
-        target: {
-          seq: {value: 212313412},
-          status: {value: 'Open'},
-          category: {value: 'cat133'},
-          title: {value: 'title30'},
-          owner: {value: 'Nash'},
-          priority: {value: 'P5'}
-        }
-      };
       const update = {
         seq: 2
       };
       wrapper.setState({update: update});
-      wrapper.instance().receiveUpdateData(mockUpdate);
+      wrapper.instance().receiveUpdateData(mockCreate);
       const duplicateData = {
         seq: 314
       };
       wrapper.setState({update: duplicateData});
-      wrapper.instance().receiveUpdateData(mockUpdate);
+      wrapper.instance().receiveUpdateData(mockCreate);
       expect(wrapper.state('warning')).toBe('Seq cannot be duplicated');
     });
   });

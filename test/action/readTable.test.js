@@ -1,5 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
+import { mockSearch } from '../data/mockData';
 import ReadTable from '../../src/client/action/readTable';
 
 describe('<ReadTable />', () => {
@@ -19,6 +20,13 @@ describe('<ReadTable />', () => {
         wrapper.setProps({isClicked: true});
         expect(wrapper.find('.read__row').prop('style')).toHaveProperty('display', 'block');
       });
+    });
+  });
+
+  describe('WHEN input changed', () => {
+    it('should change state value', () => {
+      wrapper.instance().handleInputChange(mockSearch);
+      expect(wrapper.state('key')).toBe('seq');
     });
   });
 

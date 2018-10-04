@@ -1,5 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
+import { mockInput } from '../data/mockData';
 import CreateRow from '../../src/client/action/createRow';
 
 describe('<CreateRow />', () => {
@@ -18,6 +19,13 @@ describe('<CreateRow />', () => {
         wrapper.setProps({isClicked: true});
         expect(wrapper.find('.create__row').prop('style')).toHaveProperty('display', 'block');
       });
+    });
+  });
+
+  describe('WHEN input changed', () => {
+    it('should change state value', () => {
+      wrapper.instance().handleInputChange(mockInput);
+      expect(wrapper.state('seq')).toBe(123);
     });
   });
 
