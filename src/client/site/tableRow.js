@@ -32,16 +32,14 @@ function TableRow (props){
 TableRow.propTypes = {
   index: PropTypes.number,
   row: rowPropType,
-  onDelete: PropTypes.func,
-  onUpdate: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
   updatedStyle: updatePropType
 };
 
 TableRow.defaultProps = {
   index: 0,
   row: {},
-  onDelete: () => {},
-  onUpdate: () => {},
   updatedStyle: {}
 };
 

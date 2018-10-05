@@ -8,11 +8,15 @@ describe('WHEN odd Row is created', () => {
     seq: 3,
     color: 'red'
   };
+  const mockDelete = jest.fn();
+  const mockUpdate = jest.fn();
   const wrapper = shallow(<TableRow 
     key={odd.seq}
     index={odd.index}
     row={odd}
     updatedStyle={updatedStyle}
+    onDelete={mockDelete}
+    onUpdate={mockUpdate}
   />);
   
   it('should have seven cells', () => {
@@ -24,16 +28,20 @@ describe('WHEN odd Row is created', () => {
   });
 });
 
-describe('WHEN even Row is created', () => {
+describe('wehn even Row is created', () => {
   const updatedStyle = {
     seq: 3,
     color: 'red'
   };
+  const mockDelete = jest.fn();
+  const mockUpdate = jest.fn();
   const wrapper = shallow(<TableRow 
     key={even.seq}
     index={even.index}
     row={even}
     updatedStyle={updatedStyle}
+    onDelete={mockDelete}
+    onUpdate={mockUpdate}
   />);
 
   it('should have seven cells', () => {

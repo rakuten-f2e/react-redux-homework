@@ -25,12 +25,11 @@ Update.propTypes = {
   target: PropTypes.shape({
     seq: PropTypes.number
   }),
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func.isRequired
 };
 
 Update.defaultProps = {
-  target: {},
-  onUpdate: () => {}
+  target: {}
 };
 
 export default Update;

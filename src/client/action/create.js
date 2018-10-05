@@ -24,14 +24,12 @@ class Create extends React.Component{
 }
 
 Create.propTypes = {
-  receiveCreatedData: PropTypes.func,
-  onCreate: PropTypes.func,
+  receiveCreatedData: PropTypes.func.isRequired,
+  onCreate: PropTypes.func.isRequired,
   isClicked: PropTypes.bool
 };
 
 Create.defaultProps = {
-  receiveCreatedData: () => {},
-  onCreate: () => {},
   isClicked: false
 };
 

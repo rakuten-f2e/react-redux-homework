@@ -5,7 +5,7 @@ import CreateRow from '../../src/client/action/createRow';
 
 describe('<CreateRow />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<CreateRow onSubmit={mockFunc} />);
+  const wrapper = shallow(<CreateRow onSubmit={mockFunc} isClicked={false} />);
   describe('WHEN users connect to the website', () => {
     it('should have inputs', () => {
       expect(wrapper.find('input')).toHaveLength(7);

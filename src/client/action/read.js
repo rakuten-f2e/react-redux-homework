@@ -25,14 +25,12 @@ class Read extends React.Component{
 }
 
 Read.propTypes = {
-  receiveSearchData: PropTypes.func,
-  onRead: PropTypes.func,
+  receiveSearchData: PropTypes.func.isRequired,
+  onRead: PropTypes.func.isRequired,
   isClicked: PropTypes.bool
 };
 
 Read.defaultProps = {
-  receiveSearchData: () => {},
-  onRead: () => {},
   isClicked: false
 };
 

@@ -4,7 +4,7 @@ import Read from '../../src/client/action/read';
 
 describe('<Read />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Read onRead={mockFunc} />);
+  const wrapper = shallow(<Read onRead={mockFunc} isClicked={false} receiveSearchData={mockFunc} />);
 
   describe('WHEN users connect to the website', () => {
     it('should display button', () => {

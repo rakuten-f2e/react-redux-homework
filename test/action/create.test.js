@@ -4,7 +4,7 @@ import Create from '../../src/client/action/create';
 
 describe('<Create />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Create onCreate={mockFunc} />);
+  const wrapper = shallow(<Create onCreate={mockFunc} receiveCreatedData={mockFunc} isClicked={false} />);
 
   describe('WHEN users connect to the website', () => {
     it('should display button', () => {

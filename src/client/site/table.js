@@ -42,15 +42,13 @@ function Table (props){
 
 Table.propTypes = {
   tableData: PropTypes.arrayOf(rowPropType),
-  receiveDeleteTarget: PropTypes.func,
-  receiveUpdateTarget: PropTypes.func,
+  receiveDeleteTarget: PropTypes.func.isRequired,
+  receiveUpdateTarget: PropTypes.func.isRequired,
   updatedStyle: updatePropType
 };
 
 Table.defaultProps = {
   tableData: [],
-  receiveDeleteTarget: () => {},
-  receiveUpdateTarget: () => {},
   updatedStyle: {}
 };
 

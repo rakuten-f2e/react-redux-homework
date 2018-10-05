@@ -83,12 +83,11 @@ class CreateRow extends React.Component{
 
 CreateRow.propTypes = {
   isClicked: PropTypes.bool,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func.isRequired
 };
 
 CreateRow.defaultProps = {
-  isClicked: false,
-  onSubmit: () => {}
+  isClicked: false
 };
 
 export default CreateRow;

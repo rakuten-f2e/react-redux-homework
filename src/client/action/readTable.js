@@ -60,12 +60,11 @@ class ReadTable extends React.Component{
 
 ReadTable.propTypes = {
   isClicked: PropTypes.bool,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func.isRequired
 };
 
 ReadTable.defaultProps = {
-  isClicked: false,
-  onSubmit: () => {}
+  isClicked: false
 };
 
 export default ReadTable;

@@ -26,12 +26,11 @@ Delete.propTypes = {
   target: PropTypes.shape({
     seq: PropTypes.number
   }),
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func.isRequired
 };
 
 Delete.defaultProps = {
-  target: {},
-  onDelete: () => {}
+  target: {}
 };
 
 export default Delete;

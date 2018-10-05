@@ -5,7 +5,7 @@ import ReadTable from '../../src/client/action/readTable';
 
 describe('<ReadTable />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<ReadTable onSubmit={mockFunc} />);
+  const wrapper = shallow(<ReadTable onSubmit={mockFunc} isClicked={false} />);
 
   describe('WHEN users connect to the website', () => {
     it('should have inputs', () => {
