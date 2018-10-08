@@ -4,7 +4,7 @@ import Delete from '../../src/client/action/delete';
 
 describe('<Delete />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Delete onDelete={mockFunc} target={{seq: 123}} />);
+  const wrapper = shallow(<Delete onDelete={mockFunc} target={123} />);
   describe('WHEN table is created', () => {
     it('should have Delete button', () => {
       expect(wrapper.find('button')).toHaveLength(1);
@@ -13,7 +13,7 @@ describe('<Delete />', () => {
 
   describe('WHEN Delete button is clicked', () => {
     it('should call handleClick', () => {
-      wrapper.find('button').simulate('click', { preventDefault() {}});
+      wrapper.find('button').simulate('click', { preventDefault() {} });
       expect(mockFunc).toHaveBeenCalled();
     });
   });

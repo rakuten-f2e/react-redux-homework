@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class CreateRow extends React.Component{
-
-  constructor(props){
+class CreateRow extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       seq: '',
@@ -11,70 +10,75 @@ class CreateRow extends React.Component{
       category: '',
       title: '',
       owner: '',
-      priority: ''
+      priority: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInputChange(e){
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
+  handleInputChange(e) {
+    const { target } = e;
+    const { value, name } = target;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
-  handleSubmit(e){
-    const { seq, status, category, title, owner, priority } = this.state;
+  handleSubmit(e) {
+    const {
+      seq,
+      status,
+      category,
+      title,
+      owner,
+      priority,
+    } = this.state;
     const { onSubmit } = this.props;
     const formData = {
-      seq: seq,
-      status: status,
-      category: category,
-      title: title,
-      owner: owner,
-      priority: priority
+      seq,
+      status,
+      category,
+      title,
+      owner,
+      priority,
     };
     e.preventDefault();
     onSubmit(formData);
   }
 
-  render(){
-    const { seq, status, category, title, owner, priority } = this.state;
+  render() {
+    const stateData = this.state;
     const { isClicked } = this.props;
     const reveal = isClicked ? 'block' : 'none';
-    return(
-      <div className="create__row" style={{display: reveal}}>
+    const labelNameList = [
+      'seq',
+      'status',
+      'category',
+      'title',
+      'owner',
+      'priority',
+    ];
+
+    return (
+      <div className="create__row" style={{ display: reveal }}>
         <form className="create__form" onSubmit={this.handleSubmit}>
-          <label htmlFor="seq">
-            Seq
-            <input type="text" name="seq" value={seq} onChange={this.handleInputChange} required />
-          </label>
-          <label htmlFor="status">
-            Status
-            <input type="text" name="status" value={status} onChange={this.handleInputChange} required />
-          </label>
-          <label htmlFor="category">
-            Category
-            <input type="text" name="category" value={category} onChange={this.handleInputChange} required />
-          </label>
-          <label htmlFor="title">
-            Title
-            <input type="text" name="title" value={title} onChange={this.handleInputChange} required />
-          </label>
-          <label htmlFor="owner">
-            Owner
-            <input type="text" name="owner" value={owner} onChange={this.handleInputChange} required />
-          </label>
-          <label htmlFor="priority">
-            Priority
-            <input type="text" name="priority" value={priority} onChange={this.handleInputChange} required />
-          </label>
-          <input type="submit" text="Submit" />
+          {
+            labelNameList.map(name => (
+              <label htmlFor={name} key={`create-row-${name}`}>
+                {name}
+                <input
+                  type="text"
+                  name={name}
+                  value={stateData[name]}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </label>
+            ))
+          }
+          <input type="submit" text="submit" />
         </form>
       </div>
     );
@@ -83,11 +87,11 @@ class CreateRow extends React.Component{
 
 CreateRow.propTypes = {
   isClicked: PropTypes.bool,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 CreateRow.defaultProps = {
-  isClicked: false
+  isClicked: false,
 };
 
 export default CreateRow;

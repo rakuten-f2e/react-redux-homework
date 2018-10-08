@@ -6,10 +6,10 @@ export const rowPropType = PropTypes.shape({
   category: PropTypes.string,
   title: PropTypes.string,
   owner: PropTypes.string,
-  priority: PropTypes.string
+  priority: PropTypes.string,
 });
 
 export const updatePropType = PropTypes.shape({
   seq: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
 });

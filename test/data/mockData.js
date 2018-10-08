@@ -1,11 +1,11 @@
 export const odd = {
-  index:1,
+  index: 1,
   seq: 3,
   status: 'Open',
   category: 'cat5',
   title: 'title500',
   owner: 'Sean',
-  priority: 'P4'
+  priority: 'P4',
 };
 
 export const even = {
@@ -15,22 +15,22 @@ export const even = {
   category: 'cat1',
   title: 'title5',
   owner: 'Shawn',
-  priority: 'P3'
+  priority: 'P3',
 };
 
 export const bySeq = {
   key: 'seq',
-  search: 3
+  search: 3,
 };
 
 export const byOwner = {
   key: 'owner',
-  search: 'Seandjkf'
+  search: 'Seandjkf',
 };
 
 export const byNone = {
   key: 'dfjaskfas',
-  search: 'Sean'
+  search: 'Sean',
 };
 
 export const mockCreate = {
@@ -40,35 +40,44 @@ export const mockCreate = {
   category: 'cat133',
   title: 'title30',
   owner: 'Nash',
-  priority: 'P5'
+  priority: 'P5',
 };
 
 export const mockInput = {
   target: {
     name: 'seq',
-    value: 123
-  }
+    value: 123,
+  },
 };
 
 export const mockSearch = {
   target: {
     name: 'key',
-    value: 'seq'
-  }
+    value: 'seq',
+  },
 };
 
 export const mockData = [
   odd,
-  even
+  even,
+  {
+    index: 3,
+    seq: 311,
+    status: 'Open',
+    category: 'cat5',
+    title: 'title500',
+    owner: 'Sean',
+    priority: 'P4',
+  },
 ];
 
 export const mockTarget = {
   isClicked: true,
-  index:1,
+  index: 1,
   seq: 3,
   status: 'Open',
   category: 'cat5',
   title: 'title500',
   owner: 'Sean',
-  priority: 'P4'
+  priority: 'P4',
 };

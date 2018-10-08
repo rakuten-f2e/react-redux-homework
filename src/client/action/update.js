@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Update extends React.Component{
-  constructor(props){
+class Update extends React.Component {
+  constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
+  handleClick() {
     const { target, onUpdate } = this.props;
-    onUpdate(target);
+    const updateTarget = {
+      seq: target,
+      isClicked: true,
+    };
+    onUpdate(updateTarget);
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="update">
         <button type="button" className="update__btn" onClick={this.handleClick}>Update</button>
       </div>
@@ -22,14 +26,8 @@ class Update extends React.Component{
 }
 
 Update.propTypes = {
-  target: PropTypes.shape({
-    seq: PropTypes.number
-  }),
-  onUpdate: PropTypes.func.isRequired
-};
-
-Update.defaultProps = {
-  target: {}
+  target: PropTypes.number.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default Update;

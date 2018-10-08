@@ -17,7 +17,7 @@ describe('<ReadTable />', () => {
     describe('WHEN read button is clicked', () => {
       it('should change style', () => {
         expect(wrapper.find('.read__row').prop('style')).toHaveProperty('display', 'none');
-        wrapper.setProps({isClicked: true});
+        wrapper.setProps({ isClicked: true });
         expect(wrapper.find('.read__row').prop('style')).toHaveProperty('display', 'block');
       });
     });
@@ -32,7 +32,7 @@ describe('<ReadTable />', () => {
 
   describe('WHEN submit is clicked', () => {
     it('should call handleSubmit', () => {
-      wrapper.find('form').simulate('submit', { preventDefault() {}});
+      wrapper.find('form').simulate('submit', { preventDefault() {} });
       expect(mockFunc).toHaveBeenCalled();
     });
   });

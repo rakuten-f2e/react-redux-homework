@@ -1,25 +1,26 @@
 import React from 'react';
 
-class Footer extends React.Component{
-  constructor(props){
+class Footer extends React.Component {
+  constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = { date: new Date() };
   }
-  componentDidMount(){
+
+  componentDidMount() {
     this.timeID = setInterval(() => this.tick(), 1000);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.timeID);
   }
 
-  tick(){
+  tick() {
     this.setState({
-      date: new Date()
+      date: new Date(),
     });
   }
 
-  render(){
+  render() {
     const { date } = this.state;
     return (
       <div className="footer">
@@ -27,13 +28,13 @@ class Footer extends React.Component{
         <footer className="footer__container">
           <p>Contribute by Li-Hsuan Hsieh</p>
           <p>
-            E-mail: 
+            E-mail:
             <a href="mailto:ss77995ss@gmai.com">ss77995ss@gmail.com</a>
           </p>
           <p>{date.toLocaleTimeString()}</p>
         </footer>
       </div>
-    ); 
+    );
   }
 }
 

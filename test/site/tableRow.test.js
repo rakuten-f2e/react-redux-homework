@@ -1,16 +1,16 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import TableRow from '../../src/client/site/tableRow';
-import {odd, even} from '../data/mockData';
+import { odd, even } from '../data/mockData';
 
 describe('WHEN odd Row is created', () => {
   const updatedStyle = {
     seq: 3,
-    color: 'red'
+    color: 'red',
   };
   const mockDelete = jest.fn();
   const mockUpdate = jest.fn();
-  const wrapper = shallow(<TableRow 
+  const wrapper = shallow(<TableRow
     key={odd.seq}
     index={odd.index}
     row={odd}
@@ -18,7 +18,7 @@ describe('WHEN odd Row is created', () => {
     onDelete={mockDelete}
     onUpdate={mockUpdate}
   />);
-  
+
   it('should have seven cells', () => {
     expect(wrapper.find('td')).toHaveLength(7);
   });
@@ -31,11 +31,11 @@ describe('WHEN odd Row is created', () => {
 describe('wehn even Row is created', () => {
   const updatedStyle = {
     seq: 3,
-    color: 'red'
+    color: 'red',
   };
   const mockDelete = jest.fn();
   const mockUpdate = jest.fn();
-  const wrapper = shallow(<TableRow 
+  const wrapper = shallow(<TableRow
     key={even.seq}
     index={even.index}
     row={even}
@@ -55,12 +55,11 @@ describe('wehn even Row is created', () => {
   describe('WHEN Row is updated', () => {
     const newStyle = {
       seq: 314,
-      color: 'light-red'
+      color: 'light-red',
     };
-    wrapper.setProps({updatedStyle: newStyle});
+    wrapper.setProps({ updatedStyle: newStyle });
     it('should change color', () => {
       expect(wrapper.find('tr').prop('style')).toHaveProperty('backgroundColor', 'light-red');
     });
   });
 });
-

@@ -2,19 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CreateRow from './createRow';
 
-class Create extends React.Component{
-  constructor(props){
+class Create extends React.Component {
+  constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(e){
+
+  handleClick(e) {
     const { onCreate } = this.props;
     onCreate(e);
   }
 
-  render(){
+  render() {
     const { isClicked, receiveCreatedData } = this.props;
-    return(
+    return (
       <div className="create">
         <button type="button" className="create__btn" value={isClicked} name="create" onClick={this.handleClick}>Create</button>
         <CreateRow isClicked={isClicked} onSubmit={receiveCreatedData} />
@@ -26,11 +27,11 @@ class Create extends React.Component{
 Create.propTypes = {
   receiveCreatedData: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,
-  isClicked: PropTypes.bool
+  isClicked: PropTypes.bool,
 };
 
 Create.defaultProps = {
-  isClicked: false
+  isClicked: false,
 };
 
 export default Create;
