@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/home.css';
-import fakedata from '../data/data.json';
+import fakeData from '../data/data.json';
 import Create from '../action/create';
 import CreateRow from '../action/createRow';
 import Read from '../action/read';
@@ -11,8 +11,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: fakedata,
-      root: fakedata,
+      data: fakeData,
+      root: fakeData,
       update: {},
       display: 'none',
       isCreate: false,

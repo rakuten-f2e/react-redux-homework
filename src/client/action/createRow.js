@@ -5,7 +5,7 @@ class CreateRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seq: '',
+      seq: -1,
       status: '',
       category: '',
       title: '',
