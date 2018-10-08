@@ -13,7 +13,7 @@ describe('<Update />', () => {
 
   describe('WHEN Update button is clicked', () => {
     it('should call handleClick', () => {
-      wrapper.find('button').simulate('click', { preventDefault() {} });
+      wrapper.find('button').simulate('click', new Event('click'));
       expect(mockFunc).toHaveBeenCalled();
     });
   });

@@ -31,7 +31,7 @@ describe('<CreateRow />', () => {
 
   describe('WHEN submit is clicked', () => {
     it('should call handleSubmit', () => {
-      wrapper.find('form').simulate('submit', { preventDefault() {} });
+      wrapper.find('form').simulate('submit', new Event('click'));
       expect(mockFunc).toHaveBeenCalled();
     });
   });
