@@ -59,6 +59,11 @@
       1, {
         "extensions": [".js", ".jsx"]
       }
-    ]
+    ],
+    "no-console": [
+      "error",
+      { "allow": ["log"] }
+    ],
+    "import/no-dynamic-require": 0
   }
 }
