@@ -1,11 +1,12 @@
-import app from './server';
 import http from 'http';
+import app from './server';
 
 const server = http.createServer(app);
+const newApp = require('./server').default;
 
 let currentApp = app;
 
-server.listen(process.env.PORT || 3000, error => {
+server.listen(process.env.PORT || 3000, (error) => {
   if (error) {
     console.log(error);
   }
@@ -19,7 +20,6 @@ if (module.hot) {
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');
     server.removeListener('request', currentApp);
-    const newApp = require('./server').default;
     server.on('request', newApp);
     currentApp = newApp;
   });

@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import Footer from '../src/client/Footer';
+import { shallow } from 'enzyme';
+import Footer from '../../src/client/site/footer';
 
 describe('<Footer />', () => {
   jest.useFakeTimers();
@@ -11,11 +11,10 @@ describe('<Footer />', () => {
       expect(wrapper.find('p')).toHaveLength(3);
       expect(wrapper.find('a').text()).toEqual('ss77995ss@gmail.com');
     });
-    
     describe('AND the third "p" tag', () => {
       it('should match state', () => {
         const now = new Date();
-        wrapper.setState({date: now});
+        wrapper.setState({ date: now });
         expect(wrapper.find('p').at(2).text()).toEqual(now.toLocaleTimeString());
       });
     });
