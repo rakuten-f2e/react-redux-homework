@@ -6,12 +6,12 @@ const mapStateToProps = state => ({
   filterText: state.readFilter,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onChange: (text) => {
     dispatch(readFilter(text));
   },
 });
 
-const Filter = connect(mapStateToProps, mapDispatchToProps)(Read);
+const ReadContainer = connect(mapStateToProps, mapDispatchToProps)(Read);
 
-export default Filter;
+export default ReadContainer;

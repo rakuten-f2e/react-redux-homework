@@ -81,3 +81,12 @@ export const mockTarget = {
   owner: 'Sean',
   priority: 'P4',
 };
+
+export const mockCreateAction = {
+  seq: 345,
+  status: 'Open',
+  category: 'cat5',
+  title: 'title500',
+  owner: 'Sean',
+  priority: 'P4',
+};

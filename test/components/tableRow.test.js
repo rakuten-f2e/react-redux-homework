@@ -1,17 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TableRow from '../../src/client/components/table';
+import TableRow from '../../src/client/components/tableRow';
 import { odd, even } from '../data/mockData';
 
 describe('WHEN odd Row is created', () => {
   const wrapper = shallow(<TableRow
-    key={odd.seq}
     index={odd.index}
     row={odd}
   />);
 
   it('should have seven cells', () => {
-    expect(wrapper.find('td')).toHaveLength(7);
+    expect(wrapper.find('td')).toHaveLength(2);
   });
 
   it('should have className "table__row table__row--odd"', () => {
@@ -21,13 +20,12 @@ describe('WHEN odd Row is created', () => {
 
 describe('wehn even Row is created', () => {
   const wrapper = shallow(<TableRow
-    key={even.seq}
     index={even.index}
     row={even}
   />);
 
   it('should have seven cells', () => {
-    expect(wrapper.find('td')).toHaveLength(7);
+    expect(wrapper.find('td')).toHaveLength(2);
   });
 
   it('should have className "table__row table__row--even"', () => {

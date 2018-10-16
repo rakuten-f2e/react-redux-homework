@@ -6,6 +6,6 @@ const mapStateToProps = state => ({
   filterText: state.readFilter,
 });
 
-const VisibleTable = connect(mapStateToProps)(Table);
+const tableContainer = connect(mapStateToProps)(Table);
 
-export default VisibleTable;
+export default tableContainer;

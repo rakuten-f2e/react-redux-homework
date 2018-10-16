@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { updateCell } from '../actions';
 import TableCell from '../components/tableCell';
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onChange: (value) => {
     dispatch(updateCell(value));
   },
 });
 
-const UpdateCell = connect(null, mapDispatchToProps)(TableCell);
+const tableCellContainer = connect(null, mapDispatchToProps)(TableCell);
 
-export default UpdateCell;
+export default tableCellContainer;

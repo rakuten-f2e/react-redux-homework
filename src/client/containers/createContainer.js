@@ -6,12 +6,12 @@ const mapStateToProps = state => ({
   id: state.table[state.table.length - 1].seq + 1,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onClick: (newRow) => {
     dispatch(createRow(newRow));
   },
 });
 
-const CreateRow = connect(mapStateToProps, mapDispatchToProps)(Create);
+const CreateContainer = connect(mapStateToProps, mapDispatchToProps)(Create);
 
-export default CreateRow;
+export default CreateContainer;

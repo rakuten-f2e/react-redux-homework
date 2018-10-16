@@ -6,7 +6,7 @@ describe('<Home />', () => {
   const wrapper = shallow(<Home />);
   describe('When the website is displayed', () => {
     it('should have a title', () => {
-      expect(wrapper.find('h1')).toBe('React-Redux Homework');
+      expect(wrapper.find('h1').text()).toBe('React-Redux Homework');
     });
   });
 });
