@@ -2,6 +2,7 @@ export const createRow = row => ({
   type: 'CREATE_ROW',
   obj: {
     seq: row.seq,
+    status: row.status,
     category: row.category,
     title: row.title,
     owner: row.owner,

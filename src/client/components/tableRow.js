@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DeleteRow from '../containers/deleteRow';
-import UpdateCell from '../containers/updateCell';
+import DeleteContainer from '../containers/deleteContainer';
+import TableCellContainer from '../containers/tableCellContainer';
 import { rowPropType } from '../types/shape';
 
 const TableRow = (props) => {
@@ -41,7 +41,7 @@ const TableRow = (props) => {
       value: item,
     };
     return (
-      <UpdateCell
+      <TableCellContainer
         key={cellData.name + seq}
         cellData={cellData}
       />);
@@ -52,7 +52,7 @@ const TableRow = (props) => {
       <td>{seq}</td>
       {editableCell}
       <td>
-        <DeleteRow target={row} />
+        <DeleteContainer target={row} />
       </td>
     </tr>
   );
