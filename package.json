@@ -44,6 +44,7 @@
     "jest": "^23.5.0",
     "jest-cli": "^23.6.0",
     "react-test-renderer": "^16.5.0",
+    "redux-mock-store": "^1.5.3",
     "sinon": "^6.3.4"
   },
   "jest": {
