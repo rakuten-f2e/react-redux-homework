@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import table from './table';
-import readFilter from './readFilter';
+import readFilter from './filterText';
 
 const tableReducer = combineReducers({
   table,

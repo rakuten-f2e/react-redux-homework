@@ -1,26 +1,36 @@
-export const createRow = row => ({
-  type: 'CREATE_ROW',
-  obj: {
-    seq: row.seq,
-    status: row.status,
-    category: row.category,
-    title: row.title,
-    owner: row.owner,
-    priority: row.priority,
-  },
-});
+import {
+  ROW_CREATER,
+  ROW_DELETER,
+  CELL_UPDATER,
+  FILTER_TEXT,
+} from '../constants/actionTypes';
 
-export const readFilter = text => ({
-  type: 'READ_FILTER',
+export const rowCreater = ({
+  seq, status, category, title, owner, priority,
+}) => (
+  {
+    type: ROW_CREATER,
+    obj: {
+      seq,
+      status,
+      category,
+      title,
+      owner,
+      priority,
+    },
+  });
+
+export const filterText = text => ({
+  type: FILTER_TEXT,
   text,
 });
 
-export const deleteRow = row => ({
-  type: 'DELETE_ROW',
+export const rowDeleter = row => ({
+  type: ROW_DELETER,
   obj: row,
 });
 
-export const updateCell = row => ({
-  type: 'UPDATE_CELL',
+export const cellUpdater = row => ({
+  type: CELL_UPDATER,
   obj: row,
 });

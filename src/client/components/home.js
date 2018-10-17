@@ -1,15 +1,15 @@
 import React from 'react';
 import '../assets/home.css';
-import ReadContainer from '../containers/readContainer';
-import CreateContainer from '../containers/createContainer';
+import SearchBarContainer from '../containers/searchBarContainer';
+import CreateBtnContainer from '../containers/createBtnContainer';
 import TableContainer from '../containers/tableContainer';
 import Footer from './footer';
 
 const Home = () => (
   <div className="home">
     <h1>React-Redux Homework</h1>
-    <ReadContainer />
-    <CreateContainer />
+    <SearchBarContainer />
+    <CreateBtnContainer />
     <TableContainer />
     <Footer />
   </div>

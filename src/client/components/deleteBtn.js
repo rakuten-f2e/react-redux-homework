@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import rowPropType from '../types/shape';
 
-class Delete extends React.Component {
+class DeleteBtn extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -22,9 +22,9 @@ class Delete extends React.Component {
   }
 }
 
-Delete.propTypes = {
+DeleteBtn.propTypes = {
   target: PropTypes.shape(rowPropType).isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-export default Delete;
+export default DeleteBtn;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Delete from '../../src/client/components/delete';
+import DeleteBtn from '../../src/client/components/deleteBtn';
 
-describe('<Delete />', () => {
+describe('<DeleteBtn />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Delete target={{}} onClick={mockFunc} />);
-  describe('WHEN table is created', () => {
+  const wrapper = shallow(<DeleteBtn target={{}} onClick={mockFunc} />);
+  describe('When table is created', () => {
     it('should have Delete button', () => {
       expect(wrapper.find('button')).toHaveLength(1);
     });

@@ -2,20 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import { mockData, mockCreateAction } from '../data/mockData';
-import CreateContainer, { mapDispatchToProps } from '../../src/client/containers/createContainer';
+import CreateBtnContainer, { mapDispatchToProps } from '../../src/client/containers/createBtnContainer';
 
 const mockStore = configureMockStore();
 
-describe('./createContainer', () => {
+describe('./createBtnContainer', () => {
   let store;
   let wrapper;
   beforeEach(() => {
     const initialState = {
       table: mockData,
-      readFilter: 'dfasf',
+      filterText: 'dfasf',
     };
     store = mockStore(initialState);
-    wrapper = shallow(<CreateContainer store={store} />);
+    wrapper = shallow(<CreateBtnContainer store={store} />);
   });
 
   describe('When create button is clicked', () => {

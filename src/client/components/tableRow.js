@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DeleteContainer from '../containers/deleteContainer';
+import DeleteContainer from '../containers/deleteBtnContainer';
 import TableCellContainer from '../containers/tableCellContainer';
 import { rowPropType } from '../types/shape';
 

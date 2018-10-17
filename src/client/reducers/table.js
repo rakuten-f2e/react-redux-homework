@@ -1,21 +1,26 @@
+import { ROW_CREATER, ROW_DELETER, CELL_UPDATER } from '../constants/actionTypes';
+
 const table = (state = [], { type, obj }) => {
   switch (type) {
-  case 'CREATE_ROW':
+  case ROW_CREATER:
     return state.concat([obj]);
-  case 'DELETE_ROW':
+  case ROW_DELETER:
     state.splice(state.indexOf(obj), 1);
     return [
       ...state,
     ];
-  case 'UPDATE_CELL':
-    return state.map((row, index, arr) => {
-      if (arr[index].seq.toString() === obj.id) {
-        const newObj = {};
-        newObj[obj.name] = obj.value;
-        return Object.assign({}, row, newObj);
+  case CELL_UPDATER: {
+    const { id, name, value } = obj;
+    return state.map((row) => {
+      if (row.seq.toString() === id) {
+        return {
+          ...row,
+          [name]: value,
+        };
       }
       return row;
     });
+  }
   default:
     return state;
   }

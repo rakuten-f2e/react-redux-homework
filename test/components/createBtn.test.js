@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Create from '../../src/client/components/create';
+import CreateBtn from '../../src/client/components/createBtn';
 
-describe('<Create />', () => {
+describe('<CreateBtn />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Create id={3} onClick={mockFunc} />);
+  const wrapper = shallow(<CreateBtn id={3} onClick={mockFunc} />);
 
-  describe('WHEN users connect to the website', () => {
+  describe('When users connect to the website', () => {
     it('should display button', () => {
       expect(wrapper.find('button')).toHaveLength(1);
     });

@@ -1,45 +1,51 @@
 import { mockCreateAction } from '../data/mockData';
+import {
+  ROW_CREATER,
+  ROW_DELETER,
+  CELL_UPDATER,
+  FILTER_TEXT,
+} from '../constants/actionTypes';
 import * as actions from '../../src/client/actions/index';
 
 describe('./actions', () => {
-  describe('When createRow action is called', () => {
+  describe('When rowCreater action is called', () => {
     it('should create an action to create new row', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
-        type: 'CREATE_ROW',
+        type: ROW_CREATER,
         obj: mockData,
       };
-      expect(actions.createRow(mockData)).toEqual(expectedAction);
+      expect(actions.rowCreater(mockData)).toEqual(expectedAction);
     });
   });
-  describe('When readFilter action is called', () => {
+  describe('When filterText action is called', () => {
     it('should create an action to read throw the table', () => {
       const mockData = 'afasfdssda';
       const expectedAction = {
-        type: 'READ_FILTER',
+        type: FILTER_TEXT,
         text: mockData,
       };
-      expect(actions.readFilter(mockData)).toEqual(expectedAction);
+      expect(actions.filterText(mockData)).toEqual(expectedAction);
     });
   });
-  describe('When deleteRow action is called', () => {
+  describe('When rowDeleter action is called', () => {
     it('should create an action to delete a row', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
-        type: 'DELETE_ROW',
+        type: ROW_DELETER,
         obj: mockData,
       };
-      expect(actions.deleteRow(mockData)).toEqual(expectedAction);
+      expect(actions.rowDeleter(mockData)).toEqual(expectedAction);
     });
   });
-  describe('When updateCell action is called', () => {
+  describe('When cellUpdater action is called', () => {
     it('should create an action to change data of a cell', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
-        type: 'UPDATE_CELL',
+        type: CELL_UPDATER,
         obj: mockData,
       };
-      expect(actions.updateCell(mockData)).toEqual(expectedAction);
+      expect(actions.cellUpdater(mockData)).toEqual(expectedAction);
     });
   });
 });

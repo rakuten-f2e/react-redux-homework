@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Create extends React.Component {
+class CreateBtn extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -37,9 +37,9 @@ class Create extends React.Component {
   }
 }
 
-Create.propTypes = {
+CreateBtn.propTypes = {
   id: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-export default Create;
+export default CreateBtn;

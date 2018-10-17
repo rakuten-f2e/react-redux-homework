@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { updateCell } from '../actions';
+import { cellUpdater } from '../actions';
 import TableCell from '../components/tableCell';
 
 export const mapDispatchToProps = dispatch => ({
   onChange: (value) => {
-    dispatch(updateCell(value));
+    dispatch(cellUpdater(value));
   },
 });
 

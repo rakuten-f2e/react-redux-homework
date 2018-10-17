@@ -1,6 +1,6 @@
-import { mapDispatchToProps } from '../../src/client/containers/deleteContainer';
+import { mapDispatchToProps } from '../../src/client/containers/deleteBtnContainer';
 
-describe('./deleteContainer', () => {
+describe('./deleteBtnContainer', () => {
   describe('When delete buntton is clicked', () => {
     it('should call deleteRow function after onClick event', () => {
       const dispatch = jest.fn();

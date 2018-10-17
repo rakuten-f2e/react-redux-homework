@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Read extends React.Component {
+class searchBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -27,9 +27,9 @@ class Read extends React.Component {
   }
 }
 
-Read.propTypes = {
+searchBar.propTypes = {
   filterText: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Read;
+export default searchBar;

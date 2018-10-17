@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import ReadContainer, { mapDispatchToProps } from '../../src/client/containers/readContainer';
+import SearchBarContainer, { mapDispatchToProps } from '../../src/client/containers/searchBarContainer';
 
 const mockStore = configureMockStore();
 
-describe('./createRow', () => {
+describe('./searchBarContainer', () => {
   let store;
   let wrapper;
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('./createRow', () => {
       readFilter: 'dfasf',
     };
     store = mockStore(initialState);
-    wrapper = shallow(<ReadContainer store={store} />);
+    wrapper = shallow(<SearchBarContainer store={store} />);
   });
 
   describe('When text is entered', () => {

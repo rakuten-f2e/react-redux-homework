@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Read from '../../src/client/components/read';
+import SearchBar from '../../src/client/components/searchBar';
 
-describe('<Read />', () => {
+describe('<SearchBar />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Read filterText="sadfsaf" onChange={mockFunc} />);
-  describe('WHEN users connect to the website', () => {
+  const wrapper = shallow(<SearchBar filterText="sadfsaf" onChange={mockFunc} />);
+  describe('When users connect to the website', () => {
     it('should display button', () => {
       expect(wrapper.find('input')).toHaveLength(1);
     });
