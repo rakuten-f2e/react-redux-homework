@@ -1,8 +1,8 @@
-import { TEXT_FILTER } from '../constants/actionTypes';
+import { FILTER_TEXT } from '../constants/actionTypes';
 
 const filterText = (state = '', action) => {
   switch (action.type) {
-  case TEXT_FILTER:
+  case FILTER_TEXT:
     return action.text;
   default:
     return state;
