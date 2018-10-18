@@ -1,18 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Delete from '../../src/client/action/delete';
+import DeleteBtn from '../../src/client/components/deleteBtn';
 
-describe('<Delete />', () => {
+describe('<DeleteBtn />', () => {
   const mockFunc = jest.fn();
-  const wrapper = shallow(<Delete onDelete={mockFunc} target={123} />);
-  describe('WHEN table is created', () => {
+  const wrapper = shallow(<DeleteBtn target={{}} onClick={mockFunc} />);
+  describe('When table is created', () => {
     it('should have Delete button', () => {
       expect(wrapper.find('button')).toHaveLength(1);
     });
   });
 
-  describe('WHEN Delete button is clicked', () => {
-    it('should call handleClick', () => {
+  describe('And users click the button', () => {
+    it('should call onClick function', () => {
       wrapper.find('button').simulate('click', new Event('click'));
       expect(mockFunc).toHaveBeenCalled();
     });

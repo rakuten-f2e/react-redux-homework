@@ -16,7 +16,9 @@
     "prop-types": "^15.6.2",
     "razzle": "^2.4.0",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   },
   "testEnvironment": "node",
   "testMatch": [
@@ -27,6 +29,7 @@
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.6.0",
@@ -42,6 +45,7 @@
     "jest": "^23.5.0",
     "jest-cli": "^23.6.0",
     "react-test-renderer": "^16.5.0",
+    "redux-mock-store": "^1.5.3",
     "sinon": "^6.3.4"
   },
   "jest": {

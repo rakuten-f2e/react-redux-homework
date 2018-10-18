@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Footer from '../../src/client/site/footer';
+import Footer from '../../src/client/components/footer';
 
 describe('<Footer />', () => {
   jest.useFakeTimers();

@@ -13,3 +13,9 @@ export const updatePropType = PropTypes.shape({
   seq: PropTypes.number,
   color: PropTypes.string,
 });
+
+export const cellPropType = PropTypes.shape({
+  id: PropTypes.number,
+  name: PropTypes.string,
+  value: PropTypes.string,
+});
