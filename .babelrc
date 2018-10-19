@@ -1,10 +1,11 @@
 {
   "presets": [
-    ["env"],
-    "react"
+    ["@babel/preset-env"],
+    "@babel/react"
   ],
-  "plugins": [
-    "babel-plugin-transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  }
 }
