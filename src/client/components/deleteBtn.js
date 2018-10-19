@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import rowPropType from '../types/shape';
+import { rowPropType } from '../types/shape';
 
 class DeleteBtn extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class DeleteBtn extends React.Component {
 }
 
 DeleteBtn.propTypes = {
-  target: PropTypes.shape(rowPropType).isRequired,
+  target: rowPropType.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
