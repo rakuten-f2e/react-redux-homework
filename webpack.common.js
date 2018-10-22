@@ -5,12 +5,14 @@ const CleanWebPackPlugin = require('clean-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: 'src/client/index.html',
-  filename: 'index.html'
+  filename: 'index.html',
 });
 
 module.exports = {
   entry: {
     app: './src/client/index.js',
+    actions: './src/client/actions/index.js',
+    reducers: './src/client/reducers/index.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -35,6 +37,11 @@ module.exports = {
   plugins: [
     htmlPlugin,
     new CleanWebPackPlugin(['build']),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
