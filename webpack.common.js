@@ -4,15 +4,13 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CleanWebPackPlugin = require('clean-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: 'src/client/index.html',
+  template: './src/client/index.html',
   filename: 'index.html',
 });
 
 module.exports = {
   entry: {
     app: './src/client/index.js',
-    actions: './src/client/actions/index.js',
-    reducers: './src/client/reducers/index.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -41,7 +39,18 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|redux)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+        common: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2,
+        },
+      },
     },
   },
 };
