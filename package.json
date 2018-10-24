@@ -7,9 +7,9 @@
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "report": "jest --coverage",
-    "server": "babel-node src/index.js",
     "lint": "./node_modules/.bin/eslint src",
-    "lint:fix": "./node_modules/.bin/eslint src --fix"
+    "lint:fix": "./node_modules/.bin/eslint src --fix",
+    "server": "node ./src/index.js"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -53,7 +53,9 @@
     "sinon": "^6.3.4",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.21.0",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
   },
