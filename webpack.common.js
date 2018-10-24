@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CleanWebPackPlugin = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: './src/client/index.html',
+  template: './public/index.html',
   filename: 'index.html',
 });
 
@@ -15,6 +16,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -36,21 +38,18 @@ module.exports = {
     htmlPlugin,
     new CleanWebPackPlugin(['build']),
     new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|redux)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|redux|prop-types)[\\/]/,
           name: 'vendor',
           chunks: 'all',
         },
-        common: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2,
-        },
       },
+      // chunks: 'all',
     },
   },
 };
