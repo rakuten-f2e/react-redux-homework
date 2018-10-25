@@ -1,5 +1,5 @@
-import http from 'http';
-import app from './server';
+const http = require('http');
+const app = require('./server/index');
 
 const server = http.createServer(app);
 const newApp = require('./server').default;
