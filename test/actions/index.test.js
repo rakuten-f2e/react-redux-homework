@@ -13,7 +13,7 @@ describe('./actions', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
         type: ROW_CREATER,
-        obj: mockData,
+        data: mockData,
       };
       expect(actions.rowCreater(mockData)).toEqual(expectedAction);
     });
@@ -33,7 +33,7 @@ describe('./actions', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
         type: ROW_DELETER,
-        obj: mockData,
+        data: mockData,
       };
       expect(actions.rowDeleter(mockData)).toEqual(expectedAction);
     });
@@ -43,7 +43,7 @@ describe('./actions', () => {
       const mockData = mockCreateAction;
       const expectedAction = {
         type: CELL_UPDATER,
-        obj: mockData,
+        data: mockData,
       };
       expect(actions.cellUpdater(mockData)).toEqual(expectedAction);
     });

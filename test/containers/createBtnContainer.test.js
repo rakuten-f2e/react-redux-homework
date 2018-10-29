@@ -28,5 +28,17 @@ describe('./createBtnContainer', () => {
       mapDispatchToProps(dispatch).onClick(mockCreateAction);
       expect(dispatch).toHaveBeenCalled();
     });
+
+    describe('When table has no element', () => {
+      it('should create an element start from seq is 1', () => {
+        const emptyState = {
+          table: [],
+          filterText: 'dfadsf',
+        };
+        store = mockStore(emptyState);
+        wrapper = shallow(<CreateBtnContainer store={store} />);
+        expect(wrapper.prop('id')).toBe(1);
+      });
+    });
   });
 });

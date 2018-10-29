@@ -14,9 +14,6 @@ class FetchBtn extends React.Component {
       .then((response) => {
         const tableData = response.data;
         onClick(tableData);
-      })
-      .catch((err) => {
-        console.log(new Error(err));
       });
   }
 
