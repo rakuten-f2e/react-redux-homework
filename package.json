@@ -9,16 +9,22 @@
     "report": "jest --coverage",
     "lint": "./node_modules/.bin/eslint src",
     "lint:fix": "./node_modules/.bin/eslint src --fix",
-    "server": "node ./src/index.js"
+    "server": "babel-node ./src/index.js"
   },
+  "proxy": "http://localhost:3000/",
   "dependencies": {
+    "@types/mongoose": "^5.2.20",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "mongoose": "^5.3.6",
     "prop-types": "^15.6.2",
     "razzle": "^2.4.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "uuid": "^3.3.2"
   },
   "testEnvironment": "node",
   "testMatch": [
@@ -26,6 +32,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.0.1",
+    "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
