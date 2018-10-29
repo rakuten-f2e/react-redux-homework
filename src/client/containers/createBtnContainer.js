@@ -3,7 +3,7 @@ import { rowCreater } from '../actions';
 import CreateBtn from '../components/createBtn';
 
 const mapStateToProps = state => ({
-  id: state.table[state.table.length - 1].seq + 1,
+  id: state.table.length === 0 ? 1 : state.table[state.table.length - 1].seq + 1,
 });
 
 export const mapDispatchToProps = dispatch => ({

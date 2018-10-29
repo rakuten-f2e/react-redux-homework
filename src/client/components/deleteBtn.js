@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { rowPropType } from '../types/shape';
 
 class DeleteBtn extends React.Component {
@@ -11,6 +12,8 @@ class DeleteBtn extends React.Component {
   handleClick() {
     const { target, onClick } = this.props;
     onClick(target);
+
+    axios.delete('/api/tabledatas', { data: target });
   }
 
   render() {

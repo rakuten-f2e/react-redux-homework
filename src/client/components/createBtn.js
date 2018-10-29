@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 class CreateBtn extends React.Component {
   constructor(props) {
@@ -18,6 +19,8 @@ class CreateBtn extends React.Component {
       owner: '',
       priority: '',
     };
+
+    axios.post('/api/tabledatas', newRow);
     onClick(newRow);
   }
 
@@ -30,7 +33,7 @@ class CreateBtn extends React.Component {
           name="create"
           onClick={this.handleClick}
         >
-            Create
+          Create
         </button>
       </div>
     );
