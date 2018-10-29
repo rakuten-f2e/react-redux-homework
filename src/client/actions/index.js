@@ -3,14 +3,16 @@ import {
   ROW_DELETER,
   CELL_UPDATER,
   FILTER_TEXT,
+  FETCH_DATA,
 } from '../constants/actionTypes';
 
 export const rowCreater = ({
-  seq, status, category, title, owner, priority,
+  _id, seq, status, category, title, owner, priority,
 }) => (
   {
     type: ROW_CREATER,
-    obj: {
+    data: {
+      _id,
       seq,
       status,
       category,
@@ -27,10 +29,15 @@ export const filterText = text => ({
 
 export const rowDeleter = row => ({
   type: ROW_DELETER,
-  obj: row,
+  data: row,
 });
 
 export const cellUpdater = row => ({
   type: CELL_UPDATER,
-  obj: row,
+  data: row,
+});
+
+export const fetchData = data => ({
+  type: FETCH_DATA,
+  data,
 });
