@@ -8,19 +8,19 @@ Learn `react`, `redux` and the ecosystem.
 You need to create a basic CRUD functionality for a issue tracker, like following:
 ![table-example](http://i.imgur.com/tyecoP9.png)
 
-Please follow below steps to do your job:   
+Please follow steps to do your job:   
 
 Step 1
-  * Construct your `app` with [starter kits](https://reactjs.org/community/starter-kits.html) and use `React` to construct your view and display above table.
+  * Construct your `app` with [starter kits](https://reactjs.org/community/starter-kits.html) and use `React` for your view and display above table.
     * Sample: `git checkout starter-kit`
-  * Please divide your component, only one component is `invalid`
+  * Please divide your component well. It should has main componet with serveral children components
   * The data is just a fake array currently
 
 Step 2
-  * Complete a CRUD functionality
-  * If a row is updated, please make that row with a particular background color
+  * Implement a CRUD functionality
+  * If a row was updated, please mark that row with a particular background color
   * Just with some fake data like previous step
-  * You need to think about how you perform the CRUD operation on the UI
+  * You need to think about how you want to present the CRUD operation on the UI
   * Please linting your `JavaScript` via [eslint](https://eslint.org/). The following are recommended `preset`:
     * [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app)
     * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
@@ -49,17 +49,17 @@ Step 7
 ## Requirements
 
 ### Workflow
-1. Please `fork` this repository, create a git `branch` per step. After finishing of each step, create `Pull Request`s to merge to your master.
+1. Please `fork` this repository, create a git `branch` per step. Once you finished each of step, please create `Pull Request`  and merge it to your master.
 2. `Definition of Done` (DoD) for per step: You should finish `component`, `unit test` and make sure `Continuous Integration (CI)` run tests successfully, which means `CI` badges should be displayed as `Passed`.
    * Write test if your component or function is in incubating instead of finish
 3. Please write the description and the `shell command` of your application in `README`.
 
-**NOTE: Your code should be Configurable, Testable and Maintainable**
+**NOTE: Your should write Configurable, Testable and Maintainable code**
 
 ### Technical
 * React
 * Redux
 * React-Router
 * Node.js & Express
-* It's necessary to write the testing for both frontend and backend
+* It's required for writing the testing for both frontend and backend
 * Deploy your application to `CI` like `Travis`, `Circle` or any else.
