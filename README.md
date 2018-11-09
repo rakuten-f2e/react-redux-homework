@@ -13,7 +13,7 @@ Please follow steps to do your job:
 Step 1
   * Construct your `app` with [starter kits](https://reactjs.org/community/starter-kits.html) and use `React` for your view and display above table.
     * Sample: `git checkout starter-kit`
-  * Please divide your component well. It should has main componet with serveral children components
+  * Please divide your component well. It should have main componet with serveral children components
   * The data is just a fake array currently
 
 Step 2
@@ -54,7 +54,7 @@ Step 7
    * Write test if your component or function is in incubating instead of finish
 3. Please write the description and the `shell command` of your application in `README`.
 
-**NOTE: Your should write Configurable, Testable and Maintainable code**
+**NOTE: You should write Configurable, Testable and Maintainable code**
 
 ### Technical
 * React
