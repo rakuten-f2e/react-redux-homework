@@ -30,7 +30,7 @@ Step 3
 
 Step 4
   * Abandon `startkit` and construct the server by your own.
-  * Use `webpack` or `browserify` as your module bundler
+  * Use `webpack` as your module bundler
   * Environment `development (dev)` and `production (prod)` are required. `uglify` and `minify` should be implemented on `prod`.
 
 Step 5
